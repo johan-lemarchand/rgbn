@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur notre site rgbn{% endblock %}
+
+{% block body %}
+    <div class="container_header">
+
+        <div class="header_box1">
+            <a href="{{ path('home') }}">
+                <img class="img-fluid " alt="Responsive image, logo rgbn" src="{{ asset('assets/images/logo.png') }}">
+            </a>
+        </div>
+
+            <div class="header_box2">
+                <div class="header_subBox1">
+                    <div class="header_link1">
+                        <div>
+                    <img class="img-fluid " alt="Responsive image, logo phone" src="{{ asset('assets/images/phone.png') }}">
+                    <a href="tel:+33687805718">(+33) 06 87 80 57 18</a>
+                        </div>
+                        <div>
+                        <img class="img-fluid " alt="Responsive image, logo mail" src="{{ asset('assets/images/mail.png') }}">
+                    <a href="mailto:rgbn-stephanegicquel@orange.fr">rgbn-stephanegicquel@orange.fr</a>
+                    </div>
+                    </div>
+                    <div class="header_link2">
+                    <img class="img-fluid " alt="Responsive image, logo facebook" src="{{ asset('assets/images/fb.png') }}">
+                    </div>
+
+                </div>
+                <div class="header_subBox2">
+                    <a class="">Accueil</a>
+                    <a class="">A propos </a>
+                    <a class="">Services</a>
+                    <a class="">Nos réalisations</a>
+                    <a class="">Services</a>
+                    <button class="btn-nav text-white">Obtenir un devis</button>
+                </div>
+            </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+/*           Header         */
+.container_header {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+.header_box1 {
+    width: 30%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+.header_box2 {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.header_subBox1 a{
+    color: black;
+    font-size: 18px;
+}
+.header_subBox1{
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header_subBox2 {
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+    font-size: 20px;
+}
+.header_subBox2 a {
+    color: black;
+}
+.header_link1 {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.header_link2 {
+    margin-right: 120px;
+}
+.btn-nav {
+    background: url("../images/button.png");
+    height: 50px;
+    width: 180px;
+    border: hidden;
+    margin-right: 20px;
+}
