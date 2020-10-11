@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} les catégories
+{% endblock %}
+
+{% block body %}
+    {% include'admin/nav.html.twig' %}
+    <h1>Gérer les catégories</h1>
+    <table class="table striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Photo</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for categorys in category %}
+            <tr>
+
+                <td> {{categorys.id}}</td>
+                <td><a href="{{ path('admin_categorie_read', {id: categorys.id}) }}">{{categorys.name}}</a></td>
+                <td>{{categorys.photo}}</td>
+
+                <td class="text-center">
+                    <a href="{{ path('admin_categorie_edit', {id: categorys.id}) }}" class="btn btn-link">
+                        <i class="fa fa-edit fa-2x"></i>
+                    </a>
+                    <form action="{{ path('admin_categorie_delete', {id: categorys.id}) }}" method="post" class="d-inline">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button class="btn btn-link fa fa-trash fa-2x"></button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+
+
+

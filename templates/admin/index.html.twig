@@ -1,1 +1,33 @@
+{% extends 'base.html.twig' %}
 
+{% block title %}accueil admin{% endblock %}
+
+{% block body %}
+    {% include'admin/nav.html.twig' %}
+    <div class="container-admin container d-flex justify-content-around">
+        <a class="admin-link" href="{{ path('admin_categorie_home') }}">
+    <div class="card text-white bg-primary mb-3 mt-5" style="max-width: 18rem;">
+        <div class="card-header d-flex justify-content-center">Catégories</div>
+        <div class="card-body">
+            <p class="card-text">ajouter,modifier ou supprimer vos catégories</p>
+        </div>
+    </div>
+        </a>
+        <a class="admin-link" href="{{ path('admin_project_home') }}">
+    <div class="card text-white bg-secondary mb-3 mt-5" style="max-width: 18rem;">
+        <div class="card-header  d-flex justify-content-center">Projets</div>
+        <div class="card-body">
+            <p class="card-text">ajouter,modifier ou supprimer vos projets</p>
+        </div>
+    </div>
+        </a>
+        <a class="admin-link" href="{{ path('admin_partner_home') }}">
+    <div class="card text-white bg-success mb-3 mt-5" style="max-width: 18rem;">
+        <div class="card-header d-flex justify-content-center">Partenaires</div>
+        <div class="card-body">
+            <p class="card-text">ajouter,modifier ou supprimer vos partenaires</p>
+        </div>
+    </div>
+        </a>
+    </div>
+{% endblock %}

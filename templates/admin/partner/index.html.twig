@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} les partenaires
+{% endblock %}
+
+{% block body %}
+    {% include'admin/nav.html.twig' %}
+    <h1>Gérer les partenaires</h1>
+    <table class="table striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Photo</th>
+            <th>Description</th>
+            <th>téléphone</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for partners in partner %}
+            <tr>
+
+                <td> {{partners.id}}</td>
+                <td><a href="{{ path('admin_partner_read', {id: partners.id}) }}">{{partners.name}}</a></td>
+                <td>{{partners.images}}</td>
+                <td>{{partners.content}}</td>
+                <td>{{partners.phone}}</td>
+
+                <td class="text-center">
+                    <a href="{{ path('admin_partner_edit', {id: partners.id}) }}" class="btn btn-link">
+                        <i class="fa fa-edit fa-2x"></i>
+                    </a>
+                    <form action="{{ path('admin_partner_delete', {id: partners.id}) }}" method="post" class="d-inline">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button class="btn btn-link fa fa-trash fa-2x"></button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
+
+
+

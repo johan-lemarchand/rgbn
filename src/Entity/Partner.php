@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\PartnerRepository;
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * @ORM\Entity(repositoryClass=PartnerRepository::class)
  */
@@ -20,12 +18,12 @@ class Partner
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $images;
+    private ?string $images;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -35,7 +33,7 @@ class Partner
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $phone;
+    private ?string $phone;
 
     public function getId(): ?int
     {
