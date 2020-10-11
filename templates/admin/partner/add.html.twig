@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un projet{% endblock %}
+
+{% block body %}
+    {% include'admin/nav.html.twig' %}
+    <h1>Ajouter un projet</h1>
+    {{ form(form) }}
+{% endblock %}

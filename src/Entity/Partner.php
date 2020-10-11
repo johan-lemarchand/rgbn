@@ -35,6 +35,11 @@ class Partner
      */
     private ?string $phone;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Images::class, mappedBy="partner", cascade={"persist", "remove"})
+     */
+    private $img;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -84,6 +89,23 @@ class Partner
     public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getImg(): ?Images
+    {
+        return $this->img;
+    }
+
+    public function setImg(Images $img): self
+    {
+        $this->img = $img;
+
+        // set the owning side of the relation if necessary
+        if ($img->getPartner() !== $this) {
+            $img->setPartner($this);
+        }
 
         return $this;
     }

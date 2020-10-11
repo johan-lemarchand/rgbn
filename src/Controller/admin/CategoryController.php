@@ -72,8 +72,8 @@ class CategoryController extends AbstractController
      * @param Request $request
      * @return RedirectResponse|Response
      */
-    /*
-        public function addCategory(Request $request)
+
+        public function add(Request $request)
         {
             $category = new Category;
 
@@ -89,10 +89,10 @@ class CategoryController extends AbstractController
                 return $this->redirectToRoute('admin_categorie_home');
             }
 
-            return $this->render('admin/categories/add.html.twig', [
+            return $this->render('admin/category/add.html.twig', [
                 'form' => $form->createView()
             ]);
-        }*/
+        }
     /**
      * @Route("/delete/{id}", name="delete", methods={"DELETE"})
      * @param Category $category

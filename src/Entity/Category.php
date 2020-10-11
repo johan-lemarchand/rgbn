@@ -30,13 +30,18 @@ class Category
     private ?string $photo;
 
     /**
-     * @ORM\OneToMany(targetEntity=project::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity="App\Entity\Project", mappedBy="category")
      */
     private $project;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Images::class, mappedBy="category", cascade={"persist", "remove"})
+     */
+    private $img;
+
     public function __construct()
     {
-        $this->project = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -94,6 +99,23 @@ class Category
             if ($project->getCategory() === $this) {
                 $project->setCategory(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getImg(): ?Images
+    {
+        return $this->img;
+    }
+
+    public function setImg(Images $img): self
+    {
+        $this->img = $img;
+
+        // set the owning side of the relation if necessary
+        if ($img->getCategory() !== $this) {
+            $img->setCategory($this);
         }
 
         return $this;

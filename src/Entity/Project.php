@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,13 +40,19 @@ class Project
     private ?\DateTimeInterface $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="project")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="project")
      */
     private ?Category $category;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="project")
+     */
+    private $img;
 
     public function __construct()
     {
         $this->date = new \DateTime();
+        $this->img = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -108,6 +116,37 @@ class Project
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImg(): Collection
+    {
+        return $this->img;
+    }
+
+    public function addImg(Images $img): self
+    {
+        if (!$this->img->contains($img)) {
+            $this->img[] = $img;
+            $img->setProject($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImg(Images $img): self
+    {
+        if ($this->img->contains($img)) {
+            $this->img->removeElement($img);
+            // set the owning side to null (unless already changed)
+            if ($img->getProject() === $this) {
+                $img->setProject(null);
+            }
+        }
 
         return $this;
     }

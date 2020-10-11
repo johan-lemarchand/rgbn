@@ -29,6 +29,9 @@
                 <td>{{projects.category.name}}</td>
 
                 <td class="text-center">
+                    <a href="{{ path('admin_project_add') }}" class="btn btn-link">
+                        <i class="fa fa-plus fa-2x"></i>
+                    </a>
                     <a href="{{ path('admin_project_edit', {id: projects.id}) }}" class="btn btn-link">
                         <i class="fa fa-edit fa-2x"></i>
                     </a>

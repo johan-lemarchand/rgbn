@@ -24,6 +24,9 @@
                 <td>{{categorys.photo}}</td>
 
                 <td class="text-center">
+                    <a href="{{ path('admin_categorie_add') }}" class="btn btn-link">
+                        <i class="fa fa-plus fa-2x"></i>
+                    </a>
                     <a href="{{ path('admin_categorie_edit', {id: categorys.id}) }}" class="btn btn-link">
                         <i class="fa fa-edit fa-2x"></i>
                     </a>

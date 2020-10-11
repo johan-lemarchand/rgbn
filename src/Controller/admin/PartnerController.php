@@ -3,6 +3,7 @@
 namespace App\Controller\admin;
 
 use App\Entity\Partner;
+use App\Form\PartnerType;
 use App\Repository\PartnerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -49,7 +50,7 @@ class PartnerController extends AbstractController
     public function edit(Partner $partner, Request $request)
     {
 
-        $form = $this->createForm(CategoryType::class, $partner);
+        $form = $this->createForm(PartnerType::class, $partner);
 
         $form->handleRequest($request);
 
@@ -66,6 +67,31 @@ class PartnerController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/add", name="add")
+     * @param Request $request
+     * @return RedirectResponse|Response
+     */
+    public function add(Request $request)
+    {
+        $partner = new Partner;
+
+        $form = $this->createForm(PartnerType::class, $partner);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($partner);
+            $em->flush();
+
+            return $this->redirectToRoute('admin_project_home');
+        }
+
+        return $this->render('admin/project/add.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
     /**
      * @Route("/delete/{id}", name="delete", methods={"DELETE"})
      * @param Partner $partner

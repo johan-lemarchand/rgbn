@@ -4,6 +4,7 @@ namespace App\Controller\admin;
 
 
 use App\Entity\Project;
+use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -67,6 +68,32 @@ class ProjectController extends AbstractController
 
         return $this->render('admin/project/edit.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+    /**
+     * @Route("/add", name="add")
+     * @param Request $request
+     * @return RedirectResponse|Response
+     */
+
+    public function add(Request $request)
+    {
+        $project = new Project;
+
+        $form = $this->createForm(ProjectType::class, $project);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($project);
+            $em->flush();
+
+            return $this->redirectToRoute('admin_project_home');
+        }
+
+        return $this->render('admin/project/add.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 
