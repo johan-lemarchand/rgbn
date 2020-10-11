@@ -113,10 +113,10 @@ class PartnerController extends AbstractController
             $em->persist($partner);
             $em->flush();
 
-            return $this->redirectToRoute('admin_project_home');
+            return $this->redirectToRoute('admin_partner_home');
         }
 
-        return $this->render('admin/project/add.html.twig', [
+        return $this->render('admin/partner/add.html.twig', [
             'form' => $form->createView()
         ]);
     }
