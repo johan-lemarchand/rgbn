@@ -3,11 +3,10 @@
 namespace App\Controller\admin;
 
 use App\Entity\Category;
-use App\Entity\Images;
+use App\Entity\Image;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DomCrawler\Image;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -65,9 +64,9 @@ class CategoryController extends AbstractController
                     $this->getParameter('images_directory'),
                     $file
                 );
-                $img = new Images();
+                $img = new Image();
                 $img->setName($file);
-                $category -> addImage($img);
+                $category -> setImage($img);
 
             }
 
@@ -105,9 +104,9 @@ class CategoryController extends AbstractController
                         $this->getParameter('images_directory'),
                         $file
                     );
-                $img = new Images();
+                $img = new Image();
                 $img->setName($file);
-                $category -> addImage($img);
+                $category -> setImage($img);
 
                 }
                 $em = $this->getDoctrine()->getManager();

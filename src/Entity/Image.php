@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\CategoryRepository;
+use App\Repository\ImageRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Entity(repositoryClass=ImageRepository::class)
  */
-class Category
+class Image
 {
     /**
      * @ORM\Id
@@ -25,14 +25,19 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Projects::class, mappedBy="category")
+     * @ORM\OneToOne(targetEntity=Category::class, inversedBy="image", cascade={"persist", "remove"})
+     */
+    private $category;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Projects::class, mappedBy="image")
      */
     private $project;
 
     /**
-     * @ORM\OneToOne(targetEntity=Image::class, mappedBy="category", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Partner::class, inversedBy="image", cascade={"persist", "remove"})
      */
-    private $image;
+    private $partner;
 
     public function __construct()
     {
@@ -56,6 +61,18 @@ class Category
         return $this;
     }
 
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Projects[]
      */
@@ -68,7 +85,7 @@ class Category
     {
         if (!$this->project->contains($project)) {
             $this->project[] = $project;
-            $project->setCategory($this);
+            $project->setImage($this);
         }
 
         return $this;
@@ -79,28 +96,22 @@ class Category
         if ($this->project->contains($project)) {
             $this->project->removeElement($project);
             // set the owning side to null (unless already changed)
-            if ($project->getCategory() === $this) {
-                $project->setCategory(null);
+            if ($project->getImage() === $this) {
+                $project->setImage(null);
             }
         }
 
         return $this;
     }
 
-    public function getImage(): ?Image
+    public function getPartner(): ?Partner
     {
-        return $this->image;
+        return $this->partner;
     }
 
-    public function setImage(?Image $image): self
+    public function setPartner(?Partner $partner): self
     {
-        $this->image = $image;
-
-        // set (or unset) the owning side of the relation if necessary
-        $newCategory = null === $image ? null : $this;
-        if ($image->getCategory() !== $newCategory) {
-            $image->setCategory($newCategory);
-        }
+        $this->partner = $partner;
 
         return $this;
     }

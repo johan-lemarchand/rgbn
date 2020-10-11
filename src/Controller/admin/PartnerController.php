@@ -2,7 +2,7 @@
 
 namespace App\Controller\admin;
 
-use App\Entity\Images;
+use App\Entity\Image;
 use App\Entity\Partner;
 use App\Form\PartnerType;
 use App\Repository\PartnerRepository;
@@ -64,9 +64,9 @@ class PartnerController extends AbstractController
                     $this->getParameter('images_directory'),
                     $file
                 );
-                $img = new Images();
+                $img = new Image();
                 $img->setName($file);
-                $partner -> addImage($img);
+                $partner -> setImage($img);
 
             }
 
@@ -104,9 +104,9 @@ class PartnerController extends AbstractController
                     $this->getParameter('images_directory'),
                     $file
                 );
-                $img = new Images();
+                $img = new Image();
                 $img->setName($file);
-                $partner -> addImage($img);
+                $partner -> setImage($img);
 
             }
             $em = $this->getDoctrine()->getManager();

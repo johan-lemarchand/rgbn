@@ -3,10 +3,10 @@
 namespace App\Controller\admin;
 
 
-use App\Entity\Images;
-use App\Entity\Project;
-use App\Form\ProjectType;
-use App\Repository\ProjectRepository;
+use App\Entity\Image;
+use App\Entity\Projects;
+use App\Form\ProjectsType;
+use App\Repository\ProjectsRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -22,40 +22,40 @@ class ProjectController extends AbstractController
 {
     /**
      * @Route("/", name="home")
-     * @param ProjectRepository $projectRepository
+     * @param ProjectsRepository $projectsRepository
      * @param CategoryRepository $categoryRepository
      * @return Response
      */
-    public function index(ProjectRepository $projectRepository, CategoryRepository $categoryRepository)
+    public function index(ProjectsRepository $projectsRepository, CategoryRepository $categoryRepository)
     {
         return $this->render('admin/project/index.html.twig', [
-            'project' => $projectRepository->findAll(),
+            'project' => $projectsRepository->findAll(),
             'category' => $categoryRepository->findAll()
         ]);
     }
 
     /**
      * @Route("/{id}", name="read", requirements={"id": "\d+"})
-     * @param Project $project
+     * @param Projects $projects
      * @return Response
      */
-    public function read(project $project)
+    public function read(projects $projects)
     {
         return $this->render('admin/project/read.html.twig', [
-            'project' => $project,
+            'projects' => $projects,
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="edit", requirements={"id": "\d+"})
-     * @param Project $project
+     * @param Projects $projects
      * @param Request $request
      * @return RedirectResponse|Response
      */
-    public function edit(project $project, Request $request)
+    public function edit(projects $projects, Request $request)
     {
 
-        $form = $this->createForm(ProjectType::class, $project);
+        $form = $this->createForm(ProjectsType::class, $projects);
 
         $form->handleRequest($request);
 
@@ -68,9 +68,9 @@ class ProjectController extends AbstractController
                     $this->getParameter('images_directory'),
                     $file
                 );
-                $img = new Images();
+                $img = new Image();
                 $img->setName($file);
-                $project -> addImage($img);
+                $projects -> setImage($img);
 
             }
 
@@ -92,9 +92,9 @@ class ProjectController extends AbstractController
 
     public function add(Request $request)
     {
-        $project = new Project;
+        $projects = new Projects;
 
-        $form = $this->createForm(ProjectType::class, $project);
+        $form = $this->createForm(ProjectsType::class, $projects);
 
         $form->handleRequest($request);
 
@@ -107,13 +107,13 @@ class ProjectController extends AbstractController
                     $this->getParameter('images_directory'),
                     $file
                 );
-                $img = new Images();
+                $img = new Image();
                 $img->setName($file);
-                $project -> addImage($img);
+                $projects -> setImage($img);
 
             }
             $em = $this->getDoctrine()->getManager();
-            $em->persist($project);
+            $em->persist($projects);
             $em->flush();
 
             return $this->redirectToRoute('admin_project_home');
@@ -126,10 +126,10 @@ class ProjectController extends AbstractController
 
     /**
      * @Route("/delete/{id}", name="delete", methods={"DELETE"})
-     * @param project $projects
+     * @param projects $projects
      * @return RedirectResponse
      */
-    public function delete(project $projects)
+    public function delete(projects $projects)
     {
         $em = $this->getDoctrine()->getManager();
         $em->remove($projects);

@@ -16,7 +16,7 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name', TextType::class,array('label' => 'nom:'))
-            ->add('photo', FileType::class,[
+            ->add('images', FileType::class,[
                 'label' => 'photos:',
                 'multiple' => true,
                 'mapped' => false,

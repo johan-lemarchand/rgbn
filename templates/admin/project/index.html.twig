@@ -25,7 +25,7 @@
                 <td> <a href="{{ path('admin_project_read', {id: projects.id}) }}">{{projects.title}}</a></td>
                 <td>{{projects.content| slice(0, 60)}} ...</td>
                 {#<td>{{projects.images}}</td>#}
-                <td>{{projects.date|date('Y-m-d H:i:s')}}</td>
+                <td>{{projects.createdAt|date('Y-m-d H:i:s')}}</td>
                 <td>{{projects.category.name}}</td>
 
                 <td class="text-center">

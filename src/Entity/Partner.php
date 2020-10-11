@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Entity;
-use App\Repository\PartnerRepository;
-use Doctrine\Common\Collections\ArrayCollection;
 
-use Doctrine\Common\Collections\Collection;
+use App\Repository\PartnerRepository;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity(repositoryClass=PartnerRepository::class)
  */
@@ -16,33 +15,28 @@ class Partner
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private ?string $name;
-
+    private $name;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      */
-    private ?string $content;
+    private $content;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private ?string $phone;
+    private $phone;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Images", mappedBy="partner", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Image::class, mappedBy="partner", cascade={"persist", "remove"})
      */
-    private  ArrayCollection $images;
+    private $image;
 
-    public function __construct()
-    {
-        $this->images = new ArrayCollection();
-    }
     public function getId(): ?int
     {
         return $this->id;
@@ -53,21 +47,19 @@ class Partner
         return $this->name;
     }
 
-    public function setName(?string $name): self
+    public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-
-
     public function getContent(): ?string
     {
         return $this->content;
     }
 
-    public function setContent(?string $content): self
+    public function setContent(string $content): self
     {
         $this->content = $content;
 
@@ -79,39 +71,26 @@ class Partner
         return $this->phone;
     }
 
-    public function setPhone(?string $phone): self
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Images[]
-     */
-    public function getImages(): Collection
+    public function getImage(): ?Image
     {
-        return $this->images;
+        return $this->image;
     }
 
-    public function addImage(Images $image): self
+    public function setImage(?Image $image): self
     {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setPartner($this);
-        }
+        $this->image = $image;
 
-        return $this;
-    }
-
-    public function removeImage(Images $image): self
-    {
-        if ($this->images->contains($image)) {
-            $this->images->removeElement($image);
-            // set the owning side to null (unless already changed)
-            if ($image->getPartner() === $this) {
-                $image->setPartner(null);
-            }
+        // set (or unset) the owning side of the relation if necessary
+        $newPartner = null === $image ? null : $this;
+        if ($image->getPartner() !== $newPartner) {
+            $image->setPartner($newPartner);
         }
 
         return $this;
