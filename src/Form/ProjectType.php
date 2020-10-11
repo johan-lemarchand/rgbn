@@ -25,7 +25,7 @@ class ProjectType extends AbstractType
             ->add('images', FileType::class,[
                 'label' => 'photos:',
                 'multiple' => true,
-                'mapped' => true,
+                'mapped' => false,
                 'required' => false
             ])
             ->add('date', DateTimeType::class, [

@@ -2,8 +2,9 @@
 
 {% block title %}modifier projet
 {% endblock %}
-
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
+
     {% include'admin/nav.html.twig' %}
     <h1>Modifier le projet</h1>
     {{ form(form) }}

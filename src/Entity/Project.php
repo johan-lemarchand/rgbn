@@ -29,10 +29,6 @@ class Project
      */
     private ?string $content;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $images;
 
     /**
      * @ORM\Column(type="datetime")
@@ -45,14 +41,14 @@ class Project
     private ?Category $category;
 
     /**
-     * @ORM\OneToMany(targetEntity=Images::class, mappedBy="project")
+     * @ORM\OneToMany(targetEntity="App\Entity\Images", mappedBy="project", cascade={"persist", "remove"})
      */
-    private $img;
+    private ArrayCollection $images;
 
     public function __construct()
     {
         $this->date = new \DateTime();
-        $this->img = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -84,17 +80,6 @@ class Project
         return $this;
     }
 
-    public function getImages(): ?string
-    {
-        return $this->images;
-    }
-
-    public function setImages(?string $images): self
-    {
-        $this->images = $images;
-
-        return $this;
-    }
 
     public function getDate(): ?\DateTimeInterface
     {
@@ -123,25 +108,25 @@ class Project
     /**
      * @return Collection|Images[]
      */
-    public function getImg(): Collection
+    public function getImages(): Collection
     {
-        return $this->img;
+        return $this->images;
     }
 
-    public function addImg(Images $img): self
+    public function addImages(Images $img): self
     {
-        if (!$this->img->contains($img)) {
-            $this->img[] = $img;
+        if (!$this->images->contains($img)) {
+            $this->images[] = $img;
             $img->setProject($this);
         }
 
         return $this;
     }
 
-    public function removeImg(Images $img): self
+    public function removeImages(Images $img): self
     {
-        if ($this->img->contains($img)) {
-            $this->img->removeElement($img);
+        if ($this->images->contains($img)) {
+            $this->images->removeElement($img);
             // set the owning side to null (unless already changed)
             if ($img->getProject() === $this) {
                 $img->setProject(null);

@@ -21,7 +21,7 @@ class PartnerType extends AbstractType
             ->add('images', FileType::class,[
                 'label' => 'photos:',
                 'multiple' => true,
-                'mapped' => true,
+                'mapped' => false,
                 'required' => false
             ])
             ->add('content', TextareaType::class,array('label' => 'description:'))

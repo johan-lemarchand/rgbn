@@ -24,10 +24,7 @@ class Category
      */
     private ?string $name;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private ?string $photo;
+
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Project", mappedBy="category")
@@ -35,13 +32,13 @@ class Category
     private $project;
 
     /**
-     * @ORM\OneToOne(targetEntity=Images::class, mappedBy="category", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Images", mappedBy="category", cascade={"persist", "remove"})
      */
-    private $img;
+    private ArrayCollection $images;
 
     public function __construct()
     {
-
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -61,17 +58,7 @@ class Category
         return $this;
     }
 
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
 
-    public function setPhoto(string $photo): self
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
 
     /**
      * @return Collection|project[]
@@ -104,18 +91,32 @@ class Category
         return $this;
     }
 
-    public function getImg(): ?Images
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
     {
-        return $this->img;
+        return $this->images;
     }
 
-    public function setImg(Images $img): self
+    public function addImage(Images $image): self
     {
-        $this->img = $img;
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setCategory($this);
+        }
 
-        // set the owning side of the relation if necessary
-        if ($img->getCategory() !== $this) {
-            $img->setCategory($this);
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->contains($image)) {
+            $this->images->removeElement($image);
+            // set the owning side to null (unless already changed)
+            if ($image->getCategory() === $this) {
+                $image->setCategory(null);
+            }
         }
 
         return $this;

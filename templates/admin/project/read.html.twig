@@ -10,7 +10,7 @@
                 <h3 class="card-header">{{ project.title }} </h3>
                 <p>{{ project.content }} </p>
                 <p>créer le {{ project.date|date('Y-m-d H:i:s') }}</p>
-                <img src="{{ project.images }}" alt="">
+               {# <img src="{{ project.images }}" alt="">#}
                 <div class="card-footer text-muted">
                     <a href="{{ path('admin_project_home') }}">Retour à la liste</a>
                 </div>

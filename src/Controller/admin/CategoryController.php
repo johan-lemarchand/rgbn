@@ -3,9 +3,11 @@
 namespace App\Controller\admin;
 
 use App\Entity\Category;
+use App\Entity\Images;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DomCrawler\Image;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,6 +57,19 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            $images = $form->get('images')->getData();
+            foreach($images as $image){
+
+                $file = md5(uniqid()) . '.' . $image->guessExtension();
+                $image -> move(
+                    $this->getParameter('images_directory'),
+                    $file
+                );
+                $img = new Images();
+                $img->setName($file);
+                $category -> addImage($img);
+
+            }
 
             $this->getDoctrine()->getManager()->flush();
 
@@ -82,6 +97,19 @@ class CategoryController extends AbstractController
             $form->handleRequest($request);
 
             if($form->isSubmitted() && $form->isValid()){
+                $images = $form->get('images')->getData();
+                foreach($images as $image){
+
+                    $file = md5(uniqid()) . '.' . $image->guessExtension();
+                    $image -> move(
+                        $this->getParameter('images_directory'),
+                        $file
+                    );
+                $img = new Images();
+                $img->setName($file);
+                $category -> addImage($img);
+
+                }
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($category);
                 $em->flush();

@@ -3,6 +3,7 @@
 namespace App\Controller\admin;
 
 
+use App\Entity\Images;
 use App\Entity\Project;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
@@ -59,6 +60,19 @@ class ProjectController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            $images = $form->get('images')->getData();
+            foreach($images as $image){
+
+                $file = md5(uniqid()) . '.' . $image->guessExtension();
+                $image -> move(
+                    $this->getParameter('images_directory'),
+                    $file
+                );
+                $img = new Images();
+                $img->setName($file);
+                $project -> addImage($img);
+
+            }
 
             $this->getDoctrine()->getManager()->flush();
 
@@ -85,6 +99,19 @@ class ProjectController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            $images = $form->get('images')->getData();
+            foreach($images as $image){
+
+                $file = md5(uniqid()) . '.' . $image->guessExtension();
+                $image -> move(
+                    $this->getParameter('images_directory'),
+                    $file
+                );
+                $img = new Images();
+                $img->setName($file);
+                $project -> addImage($img);
+
+            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($project);
             $em->flush();

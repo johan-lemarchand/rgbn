@@ -2,6 +2,7 @@
 
 namespace App\Controller\admin;
 
+use App\Entity\Images;
 use App\Entity\Partner;
 use App\Form\PartnerType;
 use App\Repository\PartnerRepository;
@@ -55,6 +56,19 @@ class PartnerController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            $images = $form->get('images')->getData();
+            foreach($images as $image){
+
+                $file = md5(uniqid()) . '.' . $image->guessExtension();
+                $image -> move(
+                    $this->getParameter('images_directory'),
+                    $file
+                );
+                $img = new Images();
+                $img->setName($file);
+                $partner -> addImage($img);
+
+            }
 
             $this->getDoctrine()->getManager()->flush();
 
@@ -81,6 +95,20 @@ class PartnerController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+
+            $images = $form->get('images')->getData();
+            foreach($images as $image){
+
+                $file = md5(uniqid()) . '.' . $image->guessExtension();
+                $image -> move(
+                    $this->getParameter('images_directory'),
+                    $file
+                );
+                $img = new Images();
+                $img->setName($file);
+                $partner -> addImage($img);
+
+            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($partner);
             $em->flush();

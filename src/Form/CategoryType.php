@@ -19,7 +19,7 @@ class CategoryType extends AbstractType
             ->add('photo', FileType::class,[
                 'label' => 'photos:',
                 'multiple' => true,
-                'mapped' => true,
+                'mapped' => false,
                 'required' => false
             ])
             ->add('Valider', SubmitType::class)
