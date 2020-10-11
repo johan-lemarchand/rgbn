@@ -484,3 +484,11 @@
 .box-footer-box-logo{
     margin-top: 30px;
 }
+.box-footer_box-p-link{
+    color: #555555;
+}
+/*           admin        */
+
+.admin-link{
+    text-decoration: none;
+}

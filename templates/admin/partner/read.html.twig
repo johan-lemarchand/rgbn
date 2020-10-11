@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}voir partenaire
+{% endblock %}
+{% block body %}
+    {% include'admin/nav.html.twig' %}
+    <div class="container">
+        <div class="row">
+            <div class="card mb-3">
+                <h3 class="card-header">{{ partner.name }} </h3>
+                {#<img src="{{ partner.images }}" alt="">#}
+                <p>{{ partner.content }}</p>
+                <p>{{ partner.phone }}</p>
+                <div class="card-footer text-muted">
+                    <a href="{{ path('admin_partner_home') }}">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

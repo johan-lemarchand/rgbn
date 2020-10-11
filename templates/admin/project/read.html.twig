@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}voir le projet
+{% endblock %}
+{% block body %}
+    {% include'admin/nav.html.twig' %}
+    <div class="container">
+        <div class="row">
+            <div class="card mb-3">
+                <h3 class="card-header">{{ projects.title }} </h3>
+                <p>{{ projects.content }} </p>
+                <p>créer le {{ projects.CreatedAt|date('Y-m-d') }}</p>
+
+                <img src="{{ asset('uploads' ~ projects.image.name) }}" alt="{{ projects.title }}">
+                <div class="card-footer text-muted">
+                    <a href="{{ path('admin_project_home') }}">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

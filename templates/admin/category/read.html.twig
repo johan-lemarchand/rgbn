@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}voir catégorie
+{% endblock %}
+{% block body %}
+    {% include'admin/nav.html.twig' %}
+    <div class="container">
+        <div class="row">
+      <div class="card mb-3">
+                <h3 class="card-header">{{ category.name }} </h3>
+
+            <img src="('uploads/' ~ category.images[0].name)" alt="">
+
+                <div class="card-footer text-muted">
+                    <a href="{{ path('admin_categorie_home') }}">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
