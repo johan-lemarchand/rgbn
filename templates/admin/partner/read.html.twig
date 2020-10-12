@@ -4,18 +4,29 @@
 {% endblock %}
 {% block body %}
     {% include'admin/nav.html.twig' %}
-    <div class="container">
-        <div class="row">
-            <div class="card mb-3">
-                <h3 class="card-header">{{ partner.name }} </h3>
-                <img src="{{ asset('uploads/' ~ partner.image.name)}}" alt="{{ partner.name }}">
-                <p>{{ partner.content }}</p>
-                <p>{{ partner.phone }}</p>
-                <div class="card-footer text-muted">
-                    <a href="{{ path('admin_partner_home') }}">Retour à la liste</a>
+    {% for message in app.flashes('messagetwo') %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+    <a class="link_project" href="{{ path('admin_partner_home') }}">
+        <img class="avatar_project" src="{{ asset('assets/images/return.png') }}">Retour à la liste</a>
+    <div class="container_project_read">
+        <div class="row_project_read">
+            <div class="box-project_read_content"><h3 class="box-project_read_content_title">Nom du partenaire</h3>
+                <p>{{ partner.name }}</p></div>
+            <div class="box-project_read_content"><h3 class="box-project_read_content_title">Description du partenaire</h3>
+                <p>{{ partner.content }} </p></div>
+            <div class="box-project_read_content"><h3 class="box-project_read_content_title">téléphone</h3>
+                <p>{{ partner.phone }}</p></div>
+        </div>
+        <div class="container_project_img">
+
+                <div class="row_project_img">
+                    <img src="{{ asset('uploads/' ~ partner.image.name)}}" alt="{{ partner.name }}">
+                    <form action="{{ path('admin_partner_delete_image', {id: partner.image.id}) }}" method="post" class="d-inline">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button class="btn btn-link fa fa-trash fa-2x"></button>
+                    </form>
                 </div>
-            </div>
         </div>
     </div>
-
 {% endblock %}

@@ -5,6 +5,9 @@
 
 {% block body %}
     {% include'admin/nav.html.twig' %}
+    {% for message in app.flashes('message') %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
     <h1>Gérer les projets</h1>
     <a href="{{ path('admin_project_add') }}">Ajouter un projet <i class="fa fa-plus-square"></i></a>
     <table class="table striped">
@@ -13,7 +16,6 @@
             <th>ID</th>
             <th>Titre</th>
             <th>Description</th>
-            <th>Photos</th>
             <th>Date de création</th>
             <th>classer dans la catégorie</th>
 
@@ -25,14 +27,9 @@
                 <td>{{projects.id}}</td>
                 <td> <a href="{{ path('admin_project_read', {id: projects.id}) }}">{{projects.title}}</a></td>
                 <td>{{projects.content| slice(0, 60)}} ...</td>
-                {#<td>{{projects.image}}</td>#}
                 <td>{{projects.createdAt|date('Y-m-d')}}</td>
                 <td>{{projects.category.name}}</td>
-
                 <td class="text-center">
-                    <a href="{{ path('admin_project_add') }}" class="btn btn-link">
-                        <i class="fa fa-plus fa-2x"></i>
-                    </a>
                     <a href="{{ path('admin_project_edit', {id: projects.id}) }}" class="btn btn-link">
                         <i class="fa fa-edit fa-2x"></i>
                     </a>
@@ -43,6 +40,8 @@
                 </td>
             </tr>
         {% endfor %}
+
+
         </tbody>
     </table>
 

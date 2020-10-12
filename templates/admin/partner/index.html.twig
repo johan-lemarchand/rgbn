@@ -5,6 +5,9 @@
 
 {% block body %}
     {% include'admin/nav.html.twig' %}
+    {% for message in app.flashes('message') %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
     <h1>Gérer les partenaires</h1>
     <a href="{{ path('admin_partner_add') }}">Ajouter un partenaire<i class="fa fa-plus-square"></i></a>
     <table class="table striped">
@@ -12,7 +15,6 @@
         <tr>
             <th>ID</th>
             <th>Nom</th>
-            <th>Photo</th>
             <th>Description</th>
             <th>téléphone</th>
 
@@ -24,14 +26,10 @@
 
                 <td> {{partners.id}}</td>
                 <td><a href="{{ path('admin_partner_read', {id: partners.id}) }}">{{partners.name}}</a></td>
-               <td>{{partners.image.name}}</td>
                 <td>{{partners.content}}</td>
                 <td>{{partners.phone}}</td>
 
                 <td class="text-center">
-                    <a href="{{ path('admin_partner_add') }}" class="btn btn-link">
-                        <i class="fa fa-plus fa-2x"></i>
-                    </a>
                     <a href="{{ path('admin_partner_edit', {id: partners.id}) }}" class="btn btn-link">
                         <i class="fa fa-edit fa-2x"></i>
                     </a>

@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -42,7 +43,7 @@ class ProjectController extends AbstractController
     public function read(projects $projects)
     {
         return $this->render('admin/project/read.html.twig', [
-            'projects' => $projects,
+            'project' => $projects,
         ]);
     }
 
@@ -59,18 +60,18 @@ class ProjectController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $images = $form->get('images')->getData();
-            foreach($images as $image){
+            foreach ($images as $image) {
 
                 $file = md5(uniqid()) . '.' . $image->guessExtension();
-                $image -> move(
+                $image->move(
                     $this->getParameter('images_directory'),
                     $file
                 );
                 $img = new Image();
                 $img->setName($file);
-                $projects -> addImage($img);
+                $projects->addImage($img);
 
             }
 
@@ -84,6 +85,7 @@ class ProjectController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
     /**
      * @Route("/add", name="add")
      * @param Request $request
@@ -98,18 +100,18 @@ class ProjectController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $images = $form->get('images')->getData();
-            foreach($images as $image){
+            foreach ($images as $image) {
 
                 $file = md5(uniqid()) . '.' . $image->guessExtension();
-                $image -> move(
+                $image->move(
                     $this->getParameter('images_directory'),
                     $file
                 );
                 $img = new Image();
                 $img->setName($file);
-                $projects -> addImage($img);
+                $projects->addImage($img);
 
             }
             $em = $this->getDoctrine()->getManager();
@@ -137,5 +139,21 @@ class ProjectController extends AbstractController
 
         $this->addFlash('message', 'Projet supprimé avec succès');
         return $this->redirectToRoute('admin_project_home');
+    }
+
+    /**
+     * @Route("/delete/image/{id}", name="delete_image", requirements={"id":"\d+"}, methods={"DELETE"})
+     * @ParamConverter("id", class="image", options={"id": "id"})
+     * @param Image $image
+     * @return RedirectResponse
+     */
+    public function deleteImage(Image $image)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($image);
+        $em->flush();
+
+        $this->addFlash('messagetwo', 'Photo supprimée avec succès');
+        return $this->redirectToRoute('admin_project_read');
     }
 }

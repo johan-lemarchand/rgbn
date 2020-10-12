@@ -43,7 +43,7 @@ class Projects
     private $category;
 
     /**
-     * @ORM\OneToMany (targetEntity=Image::class, mappedBy="projects", cascade={"persist"})
+     * @ORM\OneToMany (targetEntity=Image::class, mappedBy="projects", cascade={"persist","remove"}, orphanRemoval=true)
      */
     private  $image;
 
@@ -51,7 +51,10 @@ class Projects
     {
         $this->image = new ArrayCollection();
     }
-
+    public function toString()
+    {
+        return $this->image;
+    }
     public function getId(): ?int
     {
         return $this->id;

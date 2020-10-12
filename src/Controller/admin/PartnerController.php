@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/admin/partner", name="admin_partner_")
@@ -131,7 +132,22 @@ class PartnerController extends AbstractController
         $em->remove($partner);
         $em->flush();
 
-        $this->addFlash('message', 'Partenaire supprimée avec succès');
+        $this->addFlash('message', 'Partenaire supprimé avec succès');
         return $this->redirectToRoute('admin_partner_home');
+    }
+    /**
+     * @Route("/delete/image/{id}", name="delete_image", requirements={"id":"\d+"}, methods={"DELETE"})
+     * @ParamConverter("id", class="partner", options={"id": "id"})
+     * @param Image $image
+     * @return RedirectResponse
+     */
+    public function deleteImage(Image $image)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($image);
+        $em->flush();
+
+        $this->addFlash('messagetwo', 'Photo supprimée avec succès');
+        return $this->redirectToRoute('admin_project_read');
     }
 }
