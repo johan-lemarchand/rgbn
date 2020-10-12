@@ -70,7 +70,7 @@ class ProjectController extends AbstractController
                 );
                 $img = new Image();
                 $img->setName($file);
-                $projects -> setImage($img);
+                $projects -> addImage($img);
 
             }
 
@@ -109,7 +109,7 @@ class ProjectController extends AbstractController
                 );
                 $img = new Image();
                 $img->setName($file);
-                $projects -> setImage($img);
+                $projects -> addImage($img);
 
             }
             $em = $this->getDoctrine()->getManager();

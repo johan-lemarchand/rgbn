@@ -10,8 +10,11 @@
                 <h3 class="card-header">{{ projects.title }} </h3>
                 <p>{{ projects.content }} </p>
                 <p>créer le {{ projects.CreatedAt|date('Y-m-d') }}</p>
+                {% for project in projects %}
 
-                <img src="{{ asset('uploads' ~ projects.image.name) }}" alt="{{ projects.title }}">
+                <img src="{{ asset('uploads/' ~ project.image.name)}}" alt="{{ projects.title }}">
+                {% endfor %}
+
                 <div class="card-footer text-muted">
                     <a href="{{ path('admin_project_home') }}">Retour à la liste</a>
                 </div>

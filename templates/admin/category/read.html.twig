@@ -9,7 +9,7 @@
       <div class="card mb-3">
                 <h3 class="card-header">{{ category.name }} </h3>
 
-            <img src="('uploads/' ~ category.images[0].name)" alt="">
+          <img src="{{ asset('uploads/' ~ category.image.name)}}" alt="{{ category.name }}">
 
                 <div class="card-footer text-muted">
                     <a href="{{ path('admin_categorie_home') }}">Retour à la liste</a>

@@ -17,15 +17,30 @@ class PartnerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class,array('label' => 'nom:'))
+            ->add('name', TextType::class,array(
+                'attr' => array(
+                    'placeholder' => 'Entrer un nom'
+                ),
+                'label' => 'nom:'))
             ->add('images', FileType::class,[
+                'attr' => array(
+                    'placeholder' => 'Choisir une image'
+                ),
                 'label' => 'photos:',
-                'multiple' => true,
+                'multiple' => false,
                 'mapped' => false,
-                'required' => false
+                'required' => true
             ])
-            ->add('content', TextareaType::class,array('label' => 'description:'))
-            ->add('phone', TelType::class,array('label' => 'téléphone:'))
+            ->add('content', TextareaType::class,array(
+                'attr' => array(
+                    'placeholder' => 'Entrer une description'
+                ),
+                'label' => 'description:'))
+            ->add('phone', TelType::class,array(
+                'attr' => array(
+                    'placeholder' => 'Entrer un numéro de téléphone'
+                ),
+                'label' => 'téléphone:'))
             ->add('Valider', SubmitType::class)
         ;
     }

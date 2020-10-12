@@ -19,17 +19,25 @@ class ProjectsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class,array('label' => 'nom:'))
+            ->add('title', TextType::class,array(
+                'attr' => array(
+                    'placeholder' => 'Entrer un nom'
+                ),
+                'label' => 'nom:'))
 
-            ->add('content', TextareaType::class,array('label' => 'description:'))
+            ->add('content', TextareaType::class,array(
+                'attr' => array(
+                    'placeholder' => 'Entrer une description'
+                ),
+                'label' => 'description:'))
             ->add('images', FileType::class,[
+                'attr' => array(
+                    'placeholder' => 'Choisir un fichier'
+                ),
                 'label' => 'photos:',
                 'multiple' => true,
                 'mapped' => false,
                 'required' => false
-            ])
-            ->add('createdAt', DateTimeType::class, [
-                'date_label' => 'Starts On',
             ])
             ->add('category', EntityType::class,[
                 'class' => Category::class,

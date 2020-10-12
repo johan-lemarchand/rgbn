@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+
+
 /**
  * @ORM\Entity(repositoryClass=ImageRepository::class)
  */
@@ -30,19 +32,16 @@ class Image
     private $category;
 
     /**
-     * @ORM\OneToMany(targetEntity=Projects::class, mappedBy="image")
+     * @ORM\ManyToOne (targetEntity=Projects::class, inversedBy="image")
      */
-    private $project;
+    private $projects;
 
     /**
      * @ORM\OneToOne(targetEntity=Partner::class, inversedBy="image", cascade={"persist", "remove"})
      */
     private $partner;
 
-    public function __construct()
-    {
-        $this->project = new ArrayCollection();
-    }
+
 
     public function getId(): ?int
     {
@@ -72,37 +71,19 @@ class Image
 
         return $this;
     }
-
-    /**
-     * @return Collection|Projects[]
-     */
-    public function getProject(): Collection
+    public function getProjects(): ?Projects
     {
-        return $this->project;
+        return $this->projects;
     }
 
-    public function addProject(Projects $project): self
+    public function setProjects(?Projects $projects): self
     {
-        if (!$this->project->contains($project)) {
-            $this->project[] = $project;
-            $project->setImage($this);
-        }
+        $this->projects = $projects;
 
         return $this;
     }
 
-    public function removeProject(Projects $project): self
-    {
-        if ($this->project->contains($project)) {
-            $this->project->removeElement($project);
-            // set the owning side to null (unless already changed)
-            if ($project->getImage() === $this) {
-                $project->setImage(null);
-            }
-        }
 
-        return $this;
-    }
 
     public function getPartner(): ?Partner
     {
@@ -115,4 +96,6 @@ class Image
 
         return $this;
     }
+
+
 }

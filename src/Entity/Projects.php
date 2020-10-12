@@ -3,10 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\ProjectsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ProjectsRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Projects
 {
@@ -29,6 +32,7 @@ class Projects
 
     /**
      * @ORM\Column(type="datetime")
+     *
      */
     private $createdAt;
 
@@ -39,9 +43,14 @@ class Projects
     private $category;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Image::class, inversedBy="project", cascade={"persist"})
+     * @ORM\OneToMany (targetEntity=Image::class, mappedBy="projects", cascade={"persist"})
      */
-    private $image;
+    private  $image;
+
+    public function __construct()
+    {
+        $this->image = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -77,9 +86,13 @@ class Projects
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    /**
+     * @ORM\PrePersist
+     * @return Projects
+     */
+    public function setCreatedAt(): self
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = new \DateTime();
 
         return $this;
     }
@@ -96,14 +109,33 @@ class Projects
         return $this;
     }
 
-    public function getImage(): ?Image
+    /**
+     * @return Collection|image[]
+     */
+    public function getImage(): Collection
     {
         return $this->image;
     }
 
-    public function setImage(?Image $image): self
+    public function addImage(image $image): self
     {
-        $this->image = $image;
+        if (!$this->image->contains($image)) {
+            $this->image[] = $image;
+            $image->setProjects($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(image $image): self
+    {
+        if ($this->image->contains($image)) {
+            $this->image->removeElement($image);
+            // set the owning side to null (unless already changed)
+            if ($image->getProjects() === $this) {
+                $image->setProjects(null);
+            }
+        }
 
         return $this;
     }

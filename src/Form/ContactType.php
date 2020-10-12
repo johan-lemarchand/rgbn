@@ -17,13 +17,23 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('message', CKEditorType::class, [
+                'attr' => array(
+                    'placeholder' => 'Entrr votre description'
+                ),
                 'label' => 'Votre message: '
             ])
             ->add('email', EmailType::class, [
+                    'attr' => array(
+                        'placeholder' => 'Entrer une adresse email'
+                    ),
                 'label' => 'Votre email: '
                 ]
             )
-            ->add('phone', TelType::class,array('label' => 'Votre téléphone:'))
+            ->add('phone', TelType::class,array(
+                'attr' => array(
+                    'placeholder' => 'Entrer un numéro de téléphone'
+                ),
+                'label' => 'Votre téléphone:'))
             ->add('Envoyer', SubmitType::class)
         ;
     }
