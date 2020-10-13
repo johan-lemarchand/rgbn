@@ -19,17 +19,12 @@
                 <p>créer le {{ project.CreatedAt|date('Y-m-d') }}</p></div>
         </div>
         <div class="container_project_img">
-        {% for images in project.image %}
-        <div class="row_project_img">
+            {% for images in project.image %}
+                <div class="row_project_img">
+                    <img src="{{ asset('uploads/' ~ images.name) }}" alt="">
 
-                <img src="{{ asset('uploads/' ~ images.name) }}" alt="">
-                <form action="{{ path('admin_project_delete_image', {id: images.id}) }}" method="post" class="d-inline">
-                    <input type="hidden" name="_method" value="DELETE" />
-                    <button class="btn btn-link fa fa-trash fa-2x"></button>
-                </form>
-
-        </div>
-        {% endfor %}
+                </div>
+            {% endfor %}
         </div>
     </div>
 

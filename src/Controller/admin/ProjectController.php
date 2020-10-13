@@ -9,11 +9,13 @@ use App\Form\ProjectsType;
 use App\Repository\ProjectsRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Json;
 
 /**
  * @Route("/admin/project", name="admin_project_")
@@ -83,6 +85,7 @@ class ProjectController extends AbstractController
 
         return $this->render('admin/project/edit.html.twig', [
             'form' => $form->createView(),
+            'project' => $projects,
         ]);
     }
 
@@ -143,17 +146,23 @@ class ProjectController extends AbstractController
 
     /**
      * @Route("/delete/image/{id}", name="delete_image", requirements={"id":"\d+"}, methods={"DELETE"})
-     * @ParamConverter("id", class="image", options={"id": "id"})
      * @param Image $image
-     * @return RedirectResponse
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function deleteImage(Image $image)
+    public function deleteImage(Image $image, Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($image);
-        $em->flush();
+        $data = json_decode($request->getContent(), true );
+        if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])) {
+            $nom = $image->getName();
+            unlink($this->getParameter('images_directory') . '/' . $nom);
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($image);
+            $em->flush();
 
-        $this->addFlash('messagetwo', 'Photo supprimée avec succès');
-        return $this->redirectToRoute('admin_project_read');
+            return new JsonResponse(['success' => 1]);
+        }else{
+            return new JsonResponse(['error' => 'Token Invalide'], 400);
+        }
     }
 }

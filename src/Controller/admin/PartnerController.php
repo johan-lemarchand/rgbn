@@ -79,6 +79,7 @@ class PartnerController extends AbstractController
 
         return $this->render('admin/partner/edit.html.twig', [
             'form' => $form->createView(),
+            'partner' => $partner,
         ]);
     }
 
@@ -148,6 +149,6 @@ class PartnerController extends AbstractController
         $em->flush();
 
         $this->addFlash('messagetwo', 'Photo supprimée avec succès');
-        return $this->redirectToRoute('admin_project_read');
+        return $this->redirectToRoute('admin_partner_read');
     }
 }
