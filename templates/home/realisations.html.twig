@@ -5,71 +5,42 @@
         <span id="item-2"></span>
         <span id="item-3"></span>
         <div class="carousel-i item-1">
-            <div class="carrousel-box">
-                <h2>Nos extensions <br> bois ou maçonnées</h2>
-                <img class="" alt="Responsive image"
-                    src="{{ asset('assets/images/Calque1.png') }}">
-            </div>
+            {% for categorys in category|slice(0, 3) %}
 
-            <div class="carrousel-box">
-                <h2>Nos rénovations <br> extérieures</h2>
-                <img class="" alt="Responsive image"
-                     src="{{ asset('assets/images/Calque2.png') }}">
-            </div>
-
-            <div class="carrousel-box">
-                <h2>Nos terrasses et portails</h2>
-                <img class="" alt="Responsive image"
-                    src="{{ asset('assets/images/Calque3.png') }}">
-            </div>
-
-            <a class="arrow arrow-prev" href="#item-3"></a>
-            <a class="arrow arrow-next" href="#item-2"></a>
+                <div class="carrousel-box">
+                    <h2>{{ categorys.name }}</h2>
+                    <img class="" alt="Responsive image"
+                         src="{{ asset('uploads/' ~ categorys.image.name) }}">
+                </div>
+                <a class="arrow arrow-prev" href="#item-3"></a>
+                <a class="arrow arrow-next" href="#item-2"></a>
+            {% endfor %}
         </div>
 
         <div class="carousel-i item-2">
-            <div class="carrousel-box">
-                <h2>Nos rénovations <br> extérieures</h2>
-                <img class="" alt="Responsive image"
-                     src="{{ asset('assets/images/Calque2.png') }}">
-            </div>
+            {% for categorys in category|slice(3, 6) %}
 
-            <div class="carrousel-box">
-                <h2>Nos extensions <br> bois ou maçonnées</h2>
-                <img class="" alt="Responsive image"
-                     src="{{ asset('assets/images/Calque1.png') }}">
-            </div>
-
-            <div class="carrousel-box">
-                <h2>Nos terrasses et portails</h2>
-                <img class="" alt="Responsive image"
-                     src="{{ asset('assets/images/Calque3.png') }}">
-            </div>
-            <a class="arrow arrow-prev" href="#item-1"></a>
-            <a class="arrow arrow-next" href="#item-3"></a>
+                <div class="carrousel-box">
+                    <h2>{{ categorys.name }}</h2>
+                    <img class="" alt="Responsive image"
+                         src="{{ asset('uploads/' ~ categorys.image.name) }}">
+                </div>
+                <a class="arrow arrow-prev" href="#item-1"></a>
+                <a class="arrow arrow-next" href="#item-3"></a>
+            {% endfor %}
         </div>
-
         <div class="carousel-i item-3">
-            <div class="carrousel-box">
-                <h2>Nos terrasses et portails</h2>
-                <img class="" alt="Responsive image"
-                     src="{{ asset('assets/images/Calque3.png') }}">
-            </div>
-            <div class="carrousel-box">
-                <h2>Nos extensions <br> bois ou maçonnées</h2>
-                <img class="" alt="Responsive image"
-                     src="{{ asset('assets/images/Calque1.png') }}">
-            </div>
+            {% for categorys in category|slice(6, 9) %}
 
-            <div class="carrousel-box">
-                <h2>Nos rénovations <br> extérieures</h2>
-                <img class="" alt="Responsive image"
-                     src="{{ asset('assets/images/Calque2.png') }}">
-            </div>
-
-
-            <a class="arrow arrow-prev" href="#item-2"></a>
-            <a class="arrow arrow-next" href="#item-1"></a>
+                <div class="carrousel-box">
+                    <h2>{{ categorys.name }}</h2>
+                    <img class="" alt="Responsive image"
+                         src="{{ asset('uploads/' ~ categorys.image.name) }}">
+                </div>
+                <a class="arrow arrow-prev" href="#item-2"></a>
+                <a class="arrow arrow-next" href="#item-1"></a>
+            {% endfor %}
         </div>
     </div>
 </div>
+

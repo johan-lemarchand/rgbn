@@ -3,32 +3,17 @@
 <div class="body-slide">
     <div class="slider">
         <div class="slide-track">
+            {% for partners in partner %}
             <div class="slide">
-                <img src="{{ asset('assets/images/partner1.png') }}" height="200" width="250" alt="" />
+                <img src="{{ asset('uploads/' ~ partners.image.name) }}" height="200" width="250" alt="" />
             </div>
-            <div class="slide">
-                <img src="{{ asset('assets/images/partner2.png') }}" height="200" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="{{ asset('assets/images/partner3.png') }}" height="200" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="{{ asset('assets/images/partner4.png') }}" height="200" width="250" alt="" />
-            </div>
+            {% endfor %}
 
-            <div class="slide">
-                <img src="{{ asset('assets/images/partner1.png') }}" height="200" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="{{ asset('assets/images/partner2.png') }}" height="200" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="{{ asset('assets/images/partner3.png') }}" height="200" width="250" alt="" />
-            </div>
-            <div class="slide">
-                <img src="{{ asset('assets/images/partner4.png') }}" height="200" width="250" alt="" />
-            </div>
-
+            {% for partners in partner %}
+                <div class="slide">
+                    <img src="{{ asset('uploads/' ~ partners.image.name) }}" height="200" width="250" alt="" />
+                </div>
+            {% endfor %}
         </div>
     </div>
 </div>
