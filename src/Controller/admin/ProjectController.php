@@ -64,8 +64,8 @@ class ProjectController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $form->get('images')->getData();
-            foreach ($images as $image) {
 
+            foreach ($images as $image) {
                 $file = md5(uniqid()) . '.' . $image->guessExtension();
                 $image->move(
                     $this->getParameter('images_directory'),
@@ -74,9 +74,7 @@ class ProjectController extends AbstractController
                 $img = new Image();
                 $img->setName($file);
                 $projects->addImage($img);
-
             }
-
             $this->getDoctrine()->getManager()->flush();
 
 

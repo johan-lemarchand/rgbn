@@ -20,12 +20,13 @@
                 <p>{{ partner.phone }}</p></div>
         </div>
         <div class="container_project_img">
-            {% for images in partner.image %}
-                <div class="row_project_img">
-                    <img src="{{ asset('uploads/' ~ images.name) }}" alt="">
+
+            <div class="row_project_img">
+                    <img src="{{ asset('uploads/' ~ partner.image.name) }}" alt="">
 
                 </div>
-            {% endfor %}
+
+
         </div>
     </div>
 {% endblock %}

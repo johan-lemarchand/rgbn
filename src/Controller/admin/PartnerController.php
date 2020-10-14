@@ -7,6 +7,7 @@ use App\Entity\Partner;
 use App\Form\PartnerType;
 use App\Repository\PartnerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,6 +41,7 @@ class PartnerController extends AbstractController
     {
         return $this->render('admin/partner/read.html.twig', [
             'partner' => $partner,
+
         ]);
     }
 
@@ -57,10 +59,9 @@ class PartnerController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $images = $form->get('images')->getData();
-            foreach($images as $image){
+            $image = $form->get('images')->getData();
 
-                $file = md5(uniqid()) . '.' . $image->guessExtension();
+            $file = md5(uniqid()) . '.' . $image->guessExtension();
                 $image -> move(
                     $this->getParameter('images_directory'),
                     $file
@@ -69,14 +70,10 @@ class PartnerController extends AbstractController
                 $img->setName($file);
                 $partner -> setImage($img);
 
-            }
-
-            $this->getDoctrine()->getManager()->flush();
-
+                $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_partner_home');
         }
-
         return $this->render('admin/partner/edit.html.twig', [
             'form' => $form->createView(),
             'partner' => $partner,
@@ -99,10 +96,8 @@ class PartnerController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
 
             $images = $form->get('images')->getData();
-            foreach($images as $image){
-
-                $file = md5(uniqid()) . '.' . $image->guessExtension();
-                $image -> move(
+            $file = md5(uniqid()) . '.' . $images->guessExtension();
+                $images -> move(
                     $this->getParameter('images_directory'),
                     $file
                 );
@@ -110,7 +105,6 @@ class PartnerController extends AbstractController
                 $img->setName($file);
                 $partner -> setImage($img);
 
-            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($partner);
             $em->flush();
@@ -136,19 +130,26 @@ class PartnerController extends AbstractController
         $this->addFlash('message', 'Partenaire supprimé avec succès');
         return $this->redirectToRoute('admin_partner_home');
     }
+
     /**
      * @Route("/delete/image/{id}", name="delete_image", requirements={"id":"\d+"}, methods={"DELETE"})
-     * @ParamConverter("id", class="partner", options={"id": "id"})
      * @param Image $image
-     * @return RedirectResponse
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function deleteImage(Image $image)
+    public function deleteImage(Image $image, Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($image);
-        $em->flush();
+        $data = json_decode($request->getContent(), true );
+        if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])) {
+            $nom = $image->getName();
+            unlink($this->getParameter('images_directory') . '/' . $nom);
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($image);
+            $em->flush();
 
-        $this->addFlash('messagetwo', 'Photo supprimée avec succès');
-        return $this->redirectToRoute('admin_partner_read');
+            return new JsonResponse(['success' => 1]);
+        }else{
+            return new JsonResponse(['error' => 'Token Invalide'], 400);
+        }
     }
 }

@@ -7,6 +7,7 @@ use App\Entity\Image;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -57,8 +58,7 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $images = $form->get('images')->getData();
-            foreach($images as $image){
+            $image = $form->get('images')->getData();
 
                 $file = md5(uniqid()) . '.' . $image->guessExtension();
                 $image -> move(
@@ -69,16 +69,14 @@ class CategoryController extends AbstractController
                 $img->setName($file);
                 $category -> setImage($img);
 
-            }
+                $this->getDoctrine()->getManager()->flush();
 
-            $this->getDoctrine()->getManager()->flush();
-
-
-            return $this->redirectToRoute('admin_categorie_home');
+                return $this->redirectToRoute('admin_categorie_home');
         }
 
         return $this->render('admin/category/edit.html.twig', [
             'form' => $form->createView(),
+            'category' => $category,
         ]);
     }
 
@@ -97,8 +95,8 @@ class CategoryController extends AbstractController
             $form->handleRequest($request);
 
             if($form->isSubmitted() && $form->isValid()){
-                $images = $form->get('images')->getData();
-                foreach($images as $image){
+                $image = $form->get('images')->getData();
+
 
                     $file = md5(uniqid()) . '.' . $image->guessExtension();
                     $image -> move(
@@ -109,7 +107,7 @@ class CategoryController extends AbstractController
                 $img->setName($file);
                 $category -> setImage($img);
 
-                }
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($category);
                 $em->flush();
@@ -134,5 +132,26 @@ class CategoryController extends AbstractController
 
         $this->addFlash('message', 'Categorie supprimée avec succès');
         return $this->redirectToRoute('admin_categorie_home');
+    }
+    /**
+     * @Route("/delete/image/{id}", name="delete_image", requirements={"id":"\d+"}, methods={"DELETE"})
+     * @param Image $image
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function deleteImage(Image $image, Request $request)
+    {
+        $data = json_decode($request->getContent(), true );
+        if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])) {
+            $nom = $image->getName();
+            unlink($this->getParameter('images_directory') . '/' . $nom);
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($image);
+            $em->flush();
+
+            return new JsonResponse(['success' => 1]);
+        }else{
+            return new JsonResponse(['error' => 'Token Invalide'], 400);
+        }
     }
 }

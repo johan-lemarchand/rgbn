@@ -27,7 +27,7 @@ class CategoryType extends AbstractType
                 'label' => 'photos:',
                 'multiple' => false,
                 'mapped' => false,
-                'required' => false
+                'required' => true
             ])
             ->add('Valider', SubmitType::class)
         ;

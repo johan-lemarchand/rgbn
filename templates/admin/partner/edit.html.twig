@@ -6,6 +6,19 @@
 {% block body %}
     {% include'admin/nav.html.twig' %}
     <h1>Modifier le partenaire</h1>
-    {{ form(form) }}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="container_project_img">
 
+            <div class="row_project_img">
+                <img src="{{ asset('uploads/' ~ partner.image.name) }}" alt="image">
+                <a href="{{ path('admin_partner_delete_image', {'id': partner.image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ partner.image.id) }}">supprimer</a>
+            </div>
+
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/images.js') }}"></script>
 {% endblock %}

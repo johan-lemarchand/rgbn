@@ -6,6 +6,22 @@
 {% block body %}
     {% include'admin/nav.html.twig' %}
     <h1>Modifier la catégories</h1>
-    {{ form(form) }}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="container_project_img">
 
+        <div class="row_project_img">
+            <img src="{{ asset('uploads/' ~ category.image.name) }}" alt="image">
+            <a href="{{ path('admin_categorie_delete_image', {'id': category.image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ category.image.id) }}">supprimer</a>
+        </div>
+
+    </div>
+    {{ form_end(form) }}
 {% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/images.js') }}"></script>
+{% endblock %}
+
+
+

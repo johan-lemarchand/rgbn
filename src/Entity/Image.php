@@ -27,7 +27,7 @@ class Image
     private $name;
 
     /**
-     * @ORM\OneToOne(targetEntity=Category::class, inversedBy="image", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Category::class, inversedBy="image", cascade={"persist"})
      */
     private $category;
 
@@ -37,7 +37,7 @@ class Image
     private $projects;
 
     /**
-     * @ORM\OneToOne(targetEntity=Partner::class, inversedBy="image", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Partner::class, inversedBy="image", cascade={"persist"})
      */
     private $partner;
 
