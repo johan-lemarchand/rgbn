@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}page des projet{% endblock %}
+
+{% block body %}
+    {% include'home/header.html.twig' %}
+    <p class="p_project"> Choisir un projet pour voir plus de photos</p>
+    <div class="flex-container">
+        {% for project in projects.image %}
+            <div class="card">
+                <a href="#" target="_blank">
+                    <p class="card-title">{{ project.title }}</p>
+                    <img class="responsive-img" src="{{ asset('uploads/' ~ project.image) }}">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% include'home/footer.html.twig' %}
+{% endblock %}

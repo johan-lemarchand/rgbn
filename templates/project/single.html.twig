@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}page des projet{% endblock %}
+
+{% block body %}
+    {% include'home/header.html.twig' %}
+    <p class="p_project"> {{ project.title }}</p>
+    <div class="flex-container">
+        <div class="card">
+
+           {# <img class="responsive-img" src="{{ asset('uploads/' ~ project.name) }}">#}
+
+        </div>
+
+    </div>
+    {% include'home/footer.html.twig' %}
+{% endblock %}

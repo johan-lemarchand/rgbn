@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}page des partenaires{% endblock %}
+
+{% block body %}
+    {% include'home/header.html.twig' %}
+    <div class="card-panel hoverable">
+        <div class="container">
+            <p>
+                <section class="grayscale">
+                    <div class="row">
+                        {% for partners in partner %}
+                        <div class="col s4 box_page_partner ">
+                            <a href="{{ partners.link }}" target="_blank">
+                                <img class="responsive-img" src="{{ asset('uploads/' ~ partners.image.name) }}">
+                            </a>
+                            <a href="tel:{{ partners.phone }}" class="mt-4 ">{{ partners.phone }}</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </p>
+        </div>
+    </div>
+    {% include'home/footer.html.twig' %}
+{% endblock %}
