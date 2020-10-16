@@ -2,11 +2,14 @@
     <h1 class="box-partenaire-title">Nos partenaires</h1>
 <div class="body-slide">
     <div class="slider">
+
         <div class="slide-track">
             {% for partners in partner %}
+
             <div class="slide">
                 <img src="{{ asset('uploads/' ~ partners.image.name) }}" height="200" width="250" alt="" />
             </div>
+
             {% endfor %}
 
             {% for partners in partner %}
@@ -15,6 +18,7 @@
                 </div>
             {% endfor %}
         </div>
+
     </div>
 </div>
 </div>

@@ -83,7 +83,7 @@
     height: 300px;
     margin: 0 auto;
     box-shadow: 0px 4px 8px 0px rgba(85, 85, 85, 0.2);
-    transform:  translate(-500px, -50px);
+    transform:  translate(-500px, 30px);
     background-color: #fff;
     display: flex;
     flex-direction: row;
@@ -656,6 +656,7 @@ img.responsive-img {
     justify-content: space-between;
     margin-right: 20px;
 }
+
 .flex-container {
     display: flex;
     flex-wrap: wrap;
