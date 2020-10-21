@@ -1,5 +1,7 @@
 <div class="box-info">
+
     <div class="box-info-box">
+        <a class="info-link" data-toggle="modal" data-target="#basicModal" href="#">
     <div class="box-info-text">
         <img class="" alt="Responsive image"
              src="{{ asset('assets/images/map.png') }}">
@@ -7,8 +9,11 @@
         <h2> Notre adresse</h2> <br>
         <p> 5 Rue du Bout aux plaids <br>
             27930 Sacquenville</p>
+
         </div>
     </div>
+        </a>
+        {% include'map/index.html.twig' %}
     <div class="box-info-text">
         <img class="" alt="Responsive image"
              src="{{ asset('assets/images/phonebas.png') }}">

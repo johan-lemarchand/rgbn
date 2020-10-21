@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Form\ContactType;
 use App\Repository\CategoryRepository;
 use App\Repository\PartnerRepository;
@@ -76,44 +77,50 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/project", name="project")
-     * @param ProjectsRepository $projectsRepository
+     * @Route("/category", name="category")
      * @param CategoryRepository $categoryRepository
+     * @param PartnerRepository $partnerRepository
      * @return Response
      */
-    public function ProjectBrowse(ProjectsRepository $projectsRepository, CategoryRepository $categoryRepository)
+    public function CategoryBrowse(CategoryRepository $categoryRepository, PartnerRepository $partnerRepository)
     {
         return $this->render('project/index.html.twig', [
-            'project' => $projectsRepository->findAll(),
             'category' => $categoryRepository->findAll(),
+            'partner' => $partnerRepository->findAll(),
         ]);
     }
 
     /**
      * @Route("/category/{id}", name="category_read", requirements={"id": "\d+"})
-     * @param ProjectsRepository $projectsRepository
-     * @param CategoryRepository $categoryRepository
+     * @param $id
+     * @param PartnerRepository $partnerRepository
      * @return Response
      */
-    public function ProjectsRead(ProjectsRepository $projectsRepository, CategoryRepository $categoryRepository)
+    public function ShowProjects($id,PartnerRepository $partnerRepository)
     {
+        $category = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->find($id);
+        $project = $category->getProject();
 
         return $this->render('project/read.html.twig', [
-            'projects' => $projectsRepository->findAll(),
-            'category' => $categoryRepository->findAll(),
+           'project' => $project,
+            'partner' => $partnerRepository->findAll(),
         ]);
+
     }
 
     /**
      * @Route("/project/{id}", name="project_single", requirements={"id": "\d+"})
      * @param ProjectsRepository $projectsRepository
+     * @param $id
      * @return Response
      */
-    public function singleProject(ProjectsRepository $projectsRepository)
+    public function singleProject(ProjectsRepository $projectsRepository, $id)
     {
-
+        $project = $projectsRepository->find($id);
         return $this->render('project/single.html.twig', [
-            'project' => $projectsRepository->findAll(),
+            'projects' => $project,
         ]);
     }
 

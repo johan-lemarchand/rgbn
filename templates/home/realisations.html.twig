@@ -6,20 +6,22 @@
         <span id="item-3"></span>
         <div class="carousel-i item-1">
             {% for categorys in category|slice(0, 3) %}
-
+                <a href="#">
                 <div class="carrousel-box">
                     <h2>{{ categorys.name }}</h2>
+
                     <img class="" alt="Responsive image"
                          src="{{ asset('uploads/' ~ categorys.image.name) }}">
                 </div>
                 <a class="arrow arrow-prev" href="#item-3"></a>
                 <a class="arrow arrow-next" href="#item-2"></a>
+                </a>
             {% endfor %}
         </div>
 
         <div class="carousel-i item-2">
             {% for categorys in category|slice(3, 3) %}
-
+            <a href="#">
                 <div class="carrousel-box">
                     <h2>{{ categorys.name }}</h2>
                     <img class="" alt="Responsive image"
@@ -27,11 +29,12 @@
                 </div>
                 <a class="arrow arrow-prev" href="#item-1"></a>
                 <a class="arrow arrow-next" href="#item-3"></a>
+            </a>
             {% endfor %}
         </div>
         <div class="carousel-i item-3">
             {% for categorys in category|slice(6, 3) %}
-
+            <a href="#">
                 <div class="carrousel-box">
                     <h2>{{ categorys.name }}</h2>
                     <img class="" alt="Responsive image"
@@ -39,6 +42,7 @@
                 </div>
                 <a class="arrow arrow-prev" href="#item-2"></a>
                 <a class="arrow arrow-next" href="#item-1"></a>
+            </a>
             {% endfor %}
         </div>
     </div>

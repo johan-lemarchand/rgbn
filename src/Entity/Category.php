@@ -25,7 +25,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Projects::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=Projects::class, mappedBy="category", cascade={"persist"})
      */
     private $project;
 

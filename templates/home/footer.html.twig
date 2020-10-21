@@ -32,11 +32,10 @@
             <img class="box-footer-box-line" alt="Responsive image"
                  src="{{ asset('assets/images/line.png') }}"> <br>
             <p class="box-footer_box-p">
-                <a class="box-footer_box-p-link" href=""> Sani27</a> <br> <br>
-                    <a class="box-footer_box-p-link" href="">  Un chouette menuisier</a> <br> <br>
-                        <a class="box-footer_box-p-link" href=""> Benoit sesf </a><br> <br>
-                            <a class="box-footer_box-p-link" href=""> Batirama</a> <br> <br>
-                                <a class="box-footer_box-p-link" href=""> Entreprise Moutier</a>
+                {% for partners in partner %}
+                <a class="box-footer_box-p-link" href=""> {{ partners.name }}</a> <br> <br>
+                {% endfor %}
+
             </p>
         </div>
     </div>
