@@ -47,6 +47,16 @@ class Projects
      */
     private  $image;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgAfter", cascade={"persist", "remove"})
+     */
+    private $imgAfter;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgBefore", cascade={"persist", "remove"})
+     */
+    private $imgBefore;
+
     public function __construct()
     {
         $this->image = new ArrayCollection();
@@ -139,6 +149,30 @@ class Projects
                 $image->setProjects(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImgAfter(): ?Image
+    {
+        return $this->imgAfter;
+    }
+
+    public function setImgAfter(?Image $imgAfter): self
+    {
+        $this->imgAfter = $imgAfter;
+
+        return $this;
+    }
+
+    public function getImgBefore(): ?Image
+    {
+        return $this->imgBefore;
+    }
+
+    public function setImgBefore(?Image $imgBefore): self
+    {
+        $this->imgBefore = $imgBefore;
 
         return $this;
     }

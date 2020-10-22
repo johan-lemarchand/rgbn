@@ -5,14 +5,20 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
     {% include'admin/nav.html.twig' %}
+    <a class="link_project" href="{{ path('admin_categorie_home') }}">
+        <img class="avatar_project" src="{{ asset('assets/images/return.png') }}">Retour à la liste</a>
     <h1>Modifier la catégories</h1>
     {{ form_start(form) }}
     {{ form_widget(form) }}
+
     <div class="container_project_img">
 
         <div class="row_project_img">
+            {% if category.image is null %}
+            {% else %}
             <img src="{{ asset('uploads/' ~ category.image.name) }}" alt="image">
             <a href="{{ path('admin_categorie_delete_image', {'id': category.image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ category.image.id) }}">supprimer</a>
+            {% endif %}
         </div>
 
     </div>

@@ -109,7 +109,6 @@ class MainController extends AbstractController
         ]);
 
     }
-
     /**
      * @Route("/project/{id}", name="project_single", requirements={"id": "\d+"})
      * @param ProjectsRepository $projectsRepository
@@ -121,6 +120,20 @@ class MainController extends AbstractController
         $project = $projectsRepository->find($id);
         return $this->render('project/single.html.twig', [
             'projects' => $project,
+        ]);
+    }
+
+    /**
+     * @Route("/partner/{id}", name="partner_single", requirements={"id": "\d+"})
+     * @param PartnerRepository $partnerRepository
+     * @param $id
+     * @return Response
+     */
+    public function singlePartner(PartnerRepository $partnerRepository, $id)
+    {
+        $partner = $partnerRepository->find($id);
+        return $this->render('partner/single.html.twig', [
+            'partner' => $partner
         ]);
     }
 

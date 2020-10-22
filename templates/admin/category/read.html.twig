@@ -7,14 +7,14 @@
     {% for message in app.flashes('messagetwo') %}
         <div class="alert alert-success" role="alert">{{ message }}</div>
     {% endfor %}
-    <a class="link_project" href="{{ path('admin_project_home') }}">
+    <a class="link_project" href="{{ path('admin_categorie_home') }}">
         <img class="avatar_project" src="{{ asset('assets/images/return.png') }}">Retour à la liste</a>
     <div class="container">
         <div class="row">
       <div class="card mb-3">
                 <h3 class="card-header">{{ category.name }} </h3>
 
-          <img src="{{ asset('uploads/' ~ category.image.name)}}" alt="">
+          <img src="{{ asset('uploads/' ~ category.image.name|default('undefined'))}}" alt="">
 
 
             </div>

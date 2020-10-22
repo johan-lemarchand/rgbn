@@ -41,6 +41,16 @@ class Image
      */
     private $partner;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Projects::class, mappedBy="imgAfter", cascade={"persist", "remove"})
+     */
+    private $imgAfter;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Projects::class, mappedBy="imgBefore", cascade={"persist", "remove"})
+     */
+    private $imgBefore;
+
 
 
     public function getId(): ?int
@@ -93,6 +103,42 @@ class Image
     public function setPartner(?Partner $partner): self
     {
         $this->partner = $partner;
+
+        return $this;
+    }
+
+    public function getImgAfter(): ?Projects
+    {
+        return $this->imgAfter;
+    }
+
+    public function setImgAfter(?Projects $imgAfter): self
+    {
+        $this->imgAfter = $imgAfter;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newImgAfter = null === $imgAfter ? null : $this;
+        if ($imgAfter->getImgAfter() !== $newImgAfter) {
+            $imgAfter->setImgAfter($newImgAfter);
+        }
+
+        return $this;
+    }
+
+    public function getImgBefore(): ?Projects
+    {
+        return $this->imgBefore;
+    }
+
+    public function setImgBefore(?Projects $imgBefore): self
+    {
+        $this->imgBefore = $imgBefore;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newImgBefore = null === $imgBefore ? null : $this;
+        if ($imgBefore->getImgBefore() !== $newImgBefore) {
+            $imgBefore->setImgBefore($newImgBefore);
+        }
 
         return $this;
     }

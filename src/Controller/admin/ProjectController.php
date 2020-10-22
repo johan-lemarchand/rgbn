@@ -64,6 +64,8 @@ class ProjectController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $form->get('images')->getData();
+            $imgBefore = $form->get('imgBefore')->getData();
+            $imgAfter = $form->get('imgAfter')->getData();
 
             foreach ($images as $image) {
                 $file = md5(uniqid()) . '.' . $image->guessExtension();
@@ -75,8 +77,29 @@ class ProjectController extends AbstractController
                 $img->setName($file);
                 $projects->addImage($img);
             }
-            $this->getDoctrine()->getManager()->flush();
 
+
+            $file = md5(uniqid()) . '.' . $imgBefore->guessExtension();
+            $imgBefore -> move(
+                $this->getParameter('images_directory'),
+                $file
+            );
+            $img = new Image();
+            $img->setName($file);
+            $projects -> setImgBefore($img);
+
+
+            $file = md5(uniqid()) . '.' . $imgAfter->guessExtension();
+            $imgAfter -> move(
+                $this->getParameter('images_directory'),
+                $file
+            );
+            $img = new Image();
+            $img->setName($file);
+            $projects -> setImgAfter($img);
+
+
+            $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_project_home');
         }
@@ -102,7 +125,10 @@ class ProjectController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imgBefore = $form->get('imgBefore')->getData();
+            $imgAfter = $form->get('imgAfter')->getData();
             $images = $form->get('images')->getData();
+
             foreach ($images as $image) {
 
                 $file = md5(uniqid()) . '.' . $image->guessExtension();
@@ -115,6 +141,26 @@ class ProjectController extends AbstractController
                 $projects->addImage($img);
 
             }
+
+            $file = md5(uniqid()) . '.' . $imgBefore->guessExtension();
+            $imgBefore -> move(
+                $this->getParameter('images_directory'),
+                $file
+            );
+            $img = new Image();
+            $img->setName($file);
+            $projects -> setImgBefore($img);
+
+
+            $file = md5(uniqid()) . '.' . $imgAfter->guessExtension();
+            $imgAfter -> move(
+                $this->getParameter('images_directory'),
+                $file
+            );
+            $img = new Image();
+            $img->setName($file);
+            $projects -> setImgAfter($img);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($projects);
             $em->flush();
@@ -153,7 +199,10 @@ class ProjectController extends AbstractController
         $data = json_decode($request->getContent(), true );
         if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])) {
             $nom = $image->getName();
+
             unlink($this->getParameter('images_directory') . '/' . $nom);
+
+
             $em = $this->getDoctrine()->getManager();
             $em->remove($image);
             $em->flush();

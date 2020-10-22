@@ -6,7 +6,7 @@
         <span id="item-3"></span>
         <div class="carousel-i item-1">
             {% for categorys in category|slice(0, 3) %}
-                <a href="#">
+                <a href="{{ path('category_read', {id: categorys.id}) }}">
                 <div class="carrousel-box">
                     <h2>{{ categorys.name }}</h2>
 
