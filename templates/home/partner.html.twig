@@ -7,14 +7,18 @@
             {% for partners in partner %}
 
             <div class="slide">
+                <a href="">
                 <img src="{{ asset('uploads/' ~ partners.image.name) }}" height="200" width="250" alt="" />
+                </a>
             </div>
 
             {% endfor %}
 
             {% for partners in partner %}
                 <div class="slide">
+                    <a href="">
                     <img src="{{ asset('uploads/' ~ partners.image.name) }}" height="200" width="250" alt="" />
+                    </a>
                 </div>
             {% endfor %}
         </div>

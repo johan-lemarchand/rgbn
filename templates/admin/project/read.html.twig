@@ -21,10 +21,24 @@
         <div class="container_project_img">
             {% for images in project.image %}
                 <div class="row_project_img">
-                    <img src="{{ asset('uploads/' ~ images.name) }}" alt="">
+                    <img src="{{ asset('uploads/' ~ images.name|default('undefined')) }}" alt="">
 
                 </div>
             {% endfor %}
+        </div>
+
+        <div class="container_project_img">
+
+            <div class="row_project_img">
+                <h2>avant: </h2>
+                <img src="{{ asset('uploads/' ~ project.imgBefore.name|default('undefined')) }}" alt="">
+            </div>
+
+            <div class="row_project_img">
+                <h2>après: </h2>
+                <img src="{{ asset('uploads/' ~ project.imgAfter.name|default('undefined')) }}" alt="">
+            </div>
+
         </div>
     </div>
 

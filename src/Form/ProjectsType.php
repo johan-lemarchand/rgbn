@@ -32,10 +32,28 @@ class ProjectsType extends AbstractType
                 'label' => 'description:'))
             ->add('images', FileType::class,[
                 'attr' => array(
-                    'placeholder' => 'Choisir un fichier'
+                    'placeholder' => 'Choisir une ou plusieurs photos'
                 ),
                 'label' => 'photos:',
                 'multiple' => true,
+                'mapped' => false,
+                'required' => false
+            ])
+            ->add('imgBefore', FileType::class,[
+                'attr' => array(
+                    'placeholder' => 'Choisir une photo avant'
+                ),
+                'label' => 'photos avant:',
+                'multiple' => false,
+                'mapped' => false,
+                'required' => false
+            ])
+            ->add('imgAfter', FileType::class,[
+                'attr' => array(
+                    'placeholder' => 'Choisir une photo après'
+                ),
+                'label' => 'photos après:',
+                'multiple' => false,
                 'mapped' => false,
                 'required' => false
             ])

@@ -4,6 +4,8 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
     {% include'admin/nav.html.twig' %}
+    <a class="link_project" href="{{ path('admin_project_home') }}">
+        <img class="avatar_project" src="{{ asset('assets/images/return.png') }}">Retour à la liste</a>
     <h1>Ajouter un projet</h1>
     {{ form(form) }}
 {% endblock %}

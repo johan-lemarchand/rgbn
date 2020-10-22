@@ -22,7 +22,7 @@
         <div class="container_project_img">
 
             <div class="row_project_img">
-                    <img src="{{ asset('uploads/' ~ partner.image.name) }}" alt="">
+                    <img src="{{ asset('uploads/' ~ partner.image.name|default('undefined')) }}" alt="">
 
                 </div>
 
