@@ -25,7 +25,7 @@
                 <h2>avant:</h2>
                 {% if project.imgBefore is null %}
                     {% else %}
-                        <img src="{{ asset('uploads/' ~ project.imgBefore.name) }}" alt="image">
+                        <img src="{{ asset('uploads/' ~ project.imgBefore.name|default('undefined')) }}" alt="image">
                         <a href="{{ path('admin_project_delete_image', {'id': project.imgBefore.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imgBefore.id) }}">supprimer</a>
                 {% endif %}
 
@@ -34,7 +34,7 @@
             <h2>après:</h2>
             {% if project.imgAfter is null %}
             {% else %}
-                <img src="{{ asset('uploads/' ~ project.imgAfter.name) }}" alt="image">
+                <img src="{{ asset('uploads/' ~ project.imgAfter.name|default('undefined')) }}" alt="image">
             <a href="{{ path('admin_project_delete_image', {'id': project.imgAfter.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imgAfter.id) }}">supprimer</a>
             {% endif %}
         </div>

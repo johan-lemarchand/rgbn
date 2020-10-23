@@ -7,7 +7,7 @@
     <div class="flex-container">
         {% for p in project %}
             <div class="card">
-                <a href="{{ path('project_single', {id: p.id}) }}" target="_blank">
+                <a href="{{ path('project_single', {id: p.id}) }}">
                     <p class="card-title">{{ p.title}}</p>
             {% if p.imgAfter is null %}
         {% else %}

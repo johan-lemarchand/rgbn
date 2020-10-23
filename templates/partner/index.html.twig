@@ -10,11 +10,14 @@
                 <section class="grayscale">
                     <div class="row">
                         {% for partners in partner %}
-                        <div class="col s4 box_page_partner ">
+                        <div class="col s4 box_page_partner">
                             <a href="{{ partners.link }}" target="_blank">
                                 <img class="responsive-img" src="{{ asset('uploads/' ~ partners.image.name) }}">
                             </a>
+                            <div class="mt-5">
                             <a href="tel:{{ partners.phone }}" class="mt-4 ">{{ partners.phone }}</a>
+                            <p>{{ partners.content }}</p>
+                            </div>
                         </div>
                         {% endfor %}
                     </div>

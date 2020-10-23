@@ -671,3 +671,52 @@ img.responsive-img {
     display: flex;
     justify-content: center;
 }
+
+.project-single-title-one {
+    position: absolute;
+    background-color: white;
+    color: black;
+}
+.project-single-title-two {
+    position: relative;
+    background-color: white;
+    height: 40px;
+    right: 83px;
+    color: black;
+}
+.project-single-boxtwo {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 100%;
+}
+.project-single-boxtwo-one{
+    width: 30%;
+    height: 100%;
+    margin-right: 100px;
+}
+.project-single-boxtwo-two {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 20px 0 20px;
+    width: 100%;
+    height: 100%;
+}
+.project-single-p{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+}
+.project-img {
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    height: 200px;
+}
+
