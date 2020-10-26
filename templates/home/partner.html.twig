@@ -7,7 +7,7 @@
             {% for partners in partner %}
 
             <div class="slide">
-                <a href="">
+                <a href="{{ path('partner') }}">
                 <img src="{{ asset('uploads/' ~ partners.image.name) }}" height="200" width="250" alt="" />
                 </a>
             </div>
@@ -16,7 +16,7 @@
 
             {% for partners in partner %}
                 <div class="slide">
-                    <a href="">
+                    <a href="{{ path('partner') }}">
                     <img src="{{ asset('uploads/' ~ partners.image.name) }}" height="200" width="250" alt="" />
                     </a>
                 </div>
