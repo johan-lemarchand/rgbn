@@ -6,6 +6,7 @@
 }
 
 /*           Header         */
+
 .container_header {
     width: 100%;
     height: 150px;
@@ -27,7 +28,7 @@
     padding-left: 20px;
 }
 .header_box2 {
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -57,6 +58,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 .header_link2 {
     margin-right: 120px;
 }
@@ -91,10 +93,10 @@
     font-weight: bold;
 }
 .service_box2 {
-    width: 170%;
+    width: 100%;
     margin: 0 auto;
     box-shadow: 0px 4px 8px 0px rgba(85, 85, 85, 0.2);
-    transform:  translate(-500px, -20px);
+    transform:  translate(0px, -20px);
     background-color: #fff;
     display: flex;
     flex-direction: row;
@@ -140,7 +142,7 @@
     width: 50%;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+
 }
 .team_text {
     width: 50%;
@@ -168,6 +170,7 @@
     flex-direction: row;
     margin-top: 20px;
     margin-bottom: 20px;
+    justify-content: center;
 }
 .ul_box{
     margin-left: 15px;
@@ -197,6 +200,7 @@
     position:relative;
     width:1200px;
     margin: 50px auto 0 auto;
+
 }
 .carousel-i{
     position:absolute;
@@ -224,7 +228,7 @@
     height: 350px;
     position: absolute;
     width: 31%;
-    color: white;
+    color: darkgray;
     font-weight: bold;
 }
 .arrow{
@@ -258,6 +262,7 @@
         background-position: 10px 50%;
     }
 }
+
 /*Select every element*/
 [id^="item"] {
     display: none;
@@ -391,6 +396,7 @@
 .box-info-text {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin-left: 50px;
     height: 110px;
 }
@@ -401,6 +407,7 @@
 .box-text {
     margin-left: 40px;
     display: flex;
+
     flex-direction: column;
     color: white;
     font-weight: bold;
@@ -720,4 +727,14 @@ img.responsive-img {
     height: 200px;
 }
 
-
+.span_handi {
+    color: #AD6D94;
+}
+@media all and (max-width: 1200px) {
+    .box-info-box{
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        box-shadow: 0px 4px 6px 0px rgba(85, 85, 85, 0.2);
+    }
+}

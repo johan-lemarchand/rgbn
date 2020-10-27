@@ -2,49 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3112c318-be52-42b6-ad83-c70734bd36c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/rgbn.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201022135252.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/06b2dd0b205c060b1268fcc4778873aa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/06bc5c788019b61ede2d0ceadbb7ec7a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/0b227a18715cd37df7a33a8b6c64ba18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/3d75be5d224702d84e2ec6cf6cf9d10a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/430951184151f80bdabb3b5ba2784584.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/58a4b8e1e7f4eb6280dc00b50ec63d2a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/592f7b0c67b1e40d7d94f33cb6d32836.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/78caf0ed78800d4744f99282ebf471ae.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/7e754e2307e10b2b74027803739f4b18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/88cca12f7f7c9ce049b3676ad42b1c3a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/98497d69475ccbf2618ca4062856275c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/9a31ad38041b83ebdff629aeca916a8a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/b2232eb012888f8f2de763837e557f7f.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/b6ba15ee0125b9ad3d3e538230d3dc0d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/c81f32758913d37f922697eca5a3e5dc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/d789cfff5374b2509e8e9776e336ec29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/dd0bd9cbe9aa635933aee0a18e9513ab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/e83a6621c16025d632a3cf4eed77adad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/eeb63dc1cbd3ec8c40fe00d6e5d75a49.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/efa403d4e12c6c5b51bdf7241a45f2c1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/ff80748be6e6e7b4df6011270b03bbdd.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201011174409.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201012104139.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201012111908.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201015073732.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201022073637.php" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/38ea0c69cda35ac5c0201b9665cc8189.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/ba6433aa8bcd8947a7f21062925f7b24.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/f125c74225ba946f1d2ab52f7d6a2983.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home/superposition.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/project/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/project/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/avis.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/info.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/info.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/realisations.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/realisations.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/service.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/service.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home/team.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/team.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partner/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partner/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/project/read.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project/read.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/project/single.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project/single.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,6 +162,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -205,7 +176,9 @@
       <workItem from="1603374390485" duration="1873000" />
       <workItem from="1603379249996" duration="4000" />
       <workItem from="1603383291065" duration="60000" />
-      <workItem from="1603444723134" duration="13146000" />
+      <workItem from="1603444723134" duration="13387000" />
+      <workItem from="1603746844523" duration="7876000" />
+      <workItem from="1603784092536" duration="26357000" />
     </task>
     <servers />
   </component>
@@ -224,6 +197,10 @@
       <screen x="0" y="26" width="1920" height="1000" />
     </state>
     <state x="657" y="328" width="595" height="403" key="#com.intellij.fileTypes.FileTypeChooser/0.26.1920.1000/1920.0.1920.1080@0.26.1920.1000" timestamp="1603374448728" />
+    <state x="449" y="161" width="1022" height="737" key="SettingsEditor" timestamp="1603751191643">
+      <screen x="0" y="27" width="1920" height="999" />
+    </state>
+    <state x="449" y="161" width="1022" height="737" key="SettingsEditor/0.27.1920.999/1920.0.1920.1080@0.27.1920.999" timestamp="1603751191643" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1603461560460">
       <screen x="0" y="27" width="1920" height="999" />
     </state>

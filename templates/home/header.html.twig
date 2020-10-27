@@ -1,10 +1,60 @@
 <header>
-    <div class="container_header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="header_box1">
+        <a class="navbar-brand" href="{{ path('home') }}"><img class="img-fluid header_img" alt="Responsive image, logo rgbn" src="{{ asset('assets/images/logo.png') }}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+            <div class="header_box2">
+                <div class="header_subBox1">
+                <div class="header_link1">
+                    <div>
+                        <img class="img-fluid " alt="Responsive image, logo phone"
+                             src="{{ asset('assets/images/phone.png') }}">
+                        <a  href="tel:+33687805718">(+33) 06 87 80 57 18</a><br>
+                        <a class="header_link_two" href="tel:+33232674111">(+33) 02 32 67 41 11</a>
+                    </div>
+                    <div>
+                        <img class="img-fluid " alt="Responsive image, logo mail"
+                             src="{{ asset('assets/images/mail.png') }}">
+                        <a href="mailto:rgbn-stephanegicquel@orange.fr">rgbn-stephanegicquel@orange.fr</a>
+                    </div>
+                </div>
+                <div class="header_link2">
+                    <a href="https://www.facebook.com/rgbn27" target="_blank"><img class="img-fluid " alt="Responsive image, logo facebook"
+                                                                                   src="{{ asset('assets/images/fb.png') }}"></a>
+                </div>
+                </div>
+
+            <ul class="navbar-nav header_subBox2">
+                <li class="nav-item ">
+                    <a class="nav-link active" href="{{ path('home') }}" >Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('category') }}">Nos réalisations</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('partner') }}">Nos partenaires</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('contact') }}"><button class="btn-nav text-white">Obtenir un devis</button></a>
+                </li>
+            </ul>
+
+            </div>
+        </div>
+    </nav>
+    {#<div class="container_header">
 
         <div class="header_box1">
             <a href="{{ path('home') }}">
                 <img class="img-fluid header_img" alt="Responsive image, logo rgbn" src="{{ asset('assets/images/logo.png') }}">
             </a>
+
         </div>
 
         <div class="header_box2">
@@ -35,7 +85,6 @@
                 <a href="{{ path('contact') }}"> <button class="btn-nav text-white">Obtenir un devis</button></a>
             </div>
         </div>
-
-    </div>
+    </div>#}
 
 </header>
