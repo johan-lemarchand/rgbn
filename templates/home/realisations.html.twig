@@ -1,7 +1,7 @@
 <div class="container " style="margin-top:300px">
     <div class="row">
         <div class="col mb-5">
-        <h1 class="font-weight-bold">Nos réalisations</h1>
+        <h1 class=" team-title">Nos réalisations</h1>
         </div>
     <div class="carousel-wrapper">
         <span id="item-1"></span>
@@ -11,7 +11,7 @@
             {% for categorys in category|slice(0, 3) %}
                 <a href="{{ path('category_read', {id: categorys.id}) }}">
                 <div class="carrousel-box">
-                    <h2>{{ categorys.name }}</h2>
+                    <h2 class="carrousel_title">{{ categorys.name }}</h2>
 
                     <img class="" alt="Responsive image"
                          src="{{ asset('uploads/' ~ categorys.image.name) }}">
@@ -26,7 +26,7 @@
             {% for categorys in category|slice(3, 3) %}
             <a href="#">
                 <div class="carrousel-box">
-                    <h2>{{ categorys.name }}</h2>
+                    <h2 class="carrousel_title">{{ categorys.name }}</h2>
                     <img class="" alt="Responsive image"
                          src="{{ asset('uploads/' ~ categorys.image.name) }}">
                 </div>
@@ -39,7 +39,7 @@
             {% for categorys in category|slice(6, 3) %}
             <a href="#">
                 <div class="carrousel-box">
-                    <h2>{{ categorys.name }}</h2>
+                    <h2 class="carrousel_title">{{ categorys.name }}</h2>
                     <img class="" alt="Responsive image"
                          src="{{ asset('uploads/' ~ categorys.image.name) }}">
                 </div>
