@@ -94,7 +94,7 @@ class Partner
 
         // set (or unset) the owning side of the relation if necessary
         $newPartner = null === $image ? null : $this;
-        if ($image->getPartner() !== $newPartner) {
+        if ($image && $image->getPartner() !== $newPartner) {
             $image->setPartner($newPartner);
         }
 
