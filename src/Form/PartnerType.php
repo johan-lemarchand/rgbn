@@ -30,7 +30,7 @@ class PartnerType extends AbstractType
                 'label' => 'photos:',
                 'multiple' => false,
                 'mapped' => false,
-                'required' => true
+                'required' => false
             ])
             ->add('content', TextareaType::class,array(
                 'attr' => array(
@@ -46,7 +46,8 @@ class PartnerType extends AbstractType
                 'attr' => array(
                     'placeholder' => 'Entrer une adresse web'
                 ),
-                'label' => 'lien:'))
+                'label' => 'lien:',
+                'required' => false))
             ->add('Valider', SubmitType::class)
         ;
     }

@@ -59,8 +59,13 @@ class PartnerController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-            $image = $form->get('images')->getData();
+           $image = $form->get('images')->getData();
 
+            $lastFile = $partner->getImage();
+            if($form['images']->getData() == null){
+                $partner-> setImage($lastFile);
+                    }
+            else{
             $file = md5(uniqid()) . '.' . $image->guessExtension();
                 $image -> move(
                     $this->getParameter('images_directory'),
@@ -69,7 +74,7 @@ class PartnerController extends AbstractController
                 $img = new Image();
                 $img->setName($file);
                 $partner -> setImage($img);
-
+            }
                 $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_partner_home');

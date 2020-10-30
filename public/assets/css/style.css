@@ -208,6 +208,7 @@
     margin-left: 15px;
 }
 .icone_img{
+    margin-top: 8px;
     margin-left: 50px;
 }
 .icone_box{
@@ -236,7 +237,7 @@
 }
 .carrousel_title {
     font-family: Montserrat-Bold, Serif;
-    color: #212121;
+    color: white;
     font-size: 29px;
 }
 .carousel-i{
@@ -253,10 +254,11 @@
     transition: all 0.5s ease-in-out;
 }
 .carrousel-box{
-    margin-right: 20px;
+    margin-right: 10px;
 }
 .carrousel-box h2:hover {
     transform:scale(1.05);
+    color: white;
 }
 .carrousel-box h2{
     display: flex;
@@ -265,7 +267,7 @@
     height: 350px;
     position: absolute;
     width: 31%;
-    color: darkgray;
+    color: white;
     font-weight: bold;
 }
 .arrow{
@@ -790,4 +792,12 @@ img.responsive-img {
         justify-content: center;
         box-shadow: 0px 4px 6px 0px rgba(85, 85, 85, 0.2);
     }
+}
+.img_header{
+    width: 15px;
+    height: 15px;
+}
+.img_team {
+    width: 200px;
+    height: 200px;
 }
