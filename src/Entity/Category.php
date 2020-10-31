@@ -98,7 +98,7 @@ class Category
 
         // set (or unset) the owning side of the relation if necessary
         $newCategory = null === $image ? null : $this;
-        if ($image->getCategory() !== $newCategory) {
+        if ($image && $image->getCategory() !== $newCategory) {
             $image->setCategory($newCategory);
         }
 

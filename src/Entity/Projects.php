@@ -132,7 +132,7 @@ class Projects
 
     public function addImage(image $image): self
     {
-        if (!$this->image->contains($image)) {
+        if ($image && !$this->image->contains($image)) {
             $this->image[] = $image;
             $image->setProjects($this);
         }
@@ -161,7 +161,11 @@ class Projects
     public function setImgAfter(?Image $imgAfter): self
     {
         $this->imgAfter = $imgAfter;
-
+        // set (or unset) the owning side of the relation if necessary
+        $newProjects = null === $imgAfter ? null : $this;
+        if ($imgAfter && $imgAfter->getProjects() !== $newProjects) {
+            $imgAfter->setProjects($newProjects);
+        }
         return $this;
     }
 
@@ -173,6 +177,11 @@ class Projects
     public function setImgBefore(?Image $imgBefore): self
     {
         $this->imgBefore = $imgBefore;
+        // set (or unset) the owning side of the relation if necessary
+        $newProjects = null === $imgBefore ? null : $this;
+        if ($imgBefore && $imgBefore->getProjects() !== $newProjects) {
+            $imgBefore->setProjects($newProjects);
+        }
 
         return $this;
     }

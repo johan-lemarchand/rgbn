@@ -67,6 +67,7 @@ class ProjectController extends AbstractController
             $imgBefore = $form->get('imgBefore')->getData();
             $imgAfter = $form->get('imgAfter')->getData();
 
+
             foreach ($images as $image) {
                 $file = md5(uniqid()) . '.' . $image->guessExtension();
                 $image->move(
@@ -78,26 +79,34 @@ class ProjectController extends AbstractController
                 $projects->addImage($img);
             }
 
-
-            $file = md5(uniqid()) . '.' . $imgBefore->guessExtension();
-            $imgBefore -> move(
-                $this->getParameter('images_directory'),
-                $file
-            );
-            $img = new Image();
-            $img->setName($file);
-            $projects -> setImgBefore($img);
-
-
-            $file = md5(uniqid()) . '.' . $imgAfter->guessExtension();
-            $imgAfter -> move(
-                $this->getParameter('images_directory'),
-                $file
-            );
-            $img = new Image();
-            $img->setName($file);
-            $projects -> setImgAfter($img);
-
+            $lastFile = $projects->getImgAfter();
+            if($form['imgAfter']->getData() == null){
+                $projects-> setImgAfter($lastFile);
+            }
+            else {
+                $file = md5(uniqid()) . '.' . $imgAfter->guessExtension();
+                $imgAfter->move(
+                    $this->getParameter('images_directory'),
+                    $file
+                );
+                $img = new Image();
+                $img->setName($file);
+                $projects->setImgAfter($img);
+            }
+            $lastFile = $projects->getImgBefore();
+            if($form['imgBefore']->getData() == null){
+                $projects-> setImgBefore($lastFile);
+            }
+            else {
+                $file = md5(uniqid()) . '.' . $imgBefore->guessExtension();
+                $imgBefore->move(
+                    $this->getParameter('images_directory'),
+                    $file
+                );
+                $img = new Image();
+                $img->setName($file);
+                $projects->setImgBefore($img);
+            }
 
             $this->getDoctrine()->getManager()->flush();
 

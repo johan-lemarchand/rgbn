@@ -59,16 +59,20 @@ class CategoryController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $image = $form->get('images')->getData();
-
+            $lastFile = $category->getImage();
+            if($form['images']->getData() == null){
+                $category-> setImage($lastFile);
+            }
+            else {
                 $file = md5(uniqid()) . '.' . $image->guessExtension();
-                $image -> move(
+                $image->move(
                     $this->getParameter('images_directory'),
                     $file
                 );
                 $img = new Image();
                 $img->setName($file);
-                $category -> setImage($img);
-
+                $category->setImage($img);
+            }
                 $this->getDoctrine()->getManager()->flush();
 
                 return $this->redirectToRoute('admin_categorie_home');
