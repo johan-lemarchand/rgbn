@@ -101,17 +101,21 @@ class CategoryController extends AbstractController
             if($form->isSubmitted() && $form->isValid()){
                 $image = $form->get('images')->getData();
 
-
+                $obligFile = null;
+                if($form['images']->getData() == null){
+                    $category-> setImage($obligFile);
+                }
+                else {
                     $file = md5(uniqid()) . '.' . $image->guessExtension();
-                    $image -> move(
+                    $image->move(
                         $this->getParameter('images_directory'),
                         $file
                     );
-                $img = new Image();
-                $img->setName($file);
-                $category -> setImage($img);
+                    $img = new Image();
+                    $img->setName($file);
+                    $category->setImage($img);
 
-
+                }
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($category);
                 $em->flush();

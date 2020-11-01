@@ -138,38 +138,52 @@ class ProjectController extends AbstractController
             $imgAfter = $form->get('imgAfter')->getData();
             $images = $form->get('images')->getData();
 
-            foreach ($images as $image) {
+            $obligFile = null;
+            if($form['images']->getData() == null){
+                $projects-> addImage($obligFile);
+            }
+            else {
 
-                $file = md5(uniqid()) . '.' . $image->guessExtension();
-                $image->move(
+                foreach ($images as $image) {
+
+                    $file = md5(uniqid()) . '.' . $image->guessExtension();
+                    $image->move(
+                        $this->getParameter('images_directory'),
+                        $file
+                    );
+                    $img = new Image();
+                    $img->setName($file);
+                    $projects->addImage($img);
+
+                }
+            }
+            if($form['imgBefore']->getData() == null){
+                $projects-> setImgBefore($obligFile);
+            }
+            else {
+
+                $file = md5(uniqid()) . '.' . $imgBefore->guessExtension();
+                $imgBefore->move(
                     $this->getParameter('images_directory'),
                     $file
                 );
                 $img = new Image();
                 $img->setName($file);
-                $projects->addImage($img);
-
+                $projects->setImgBefore($img);
             }
-
-            $file = md5(uniqid()) . '.' . $imgBefore->guessExtension();
-            $imgBefore -> move(
-                $this->getParameter('images_directory'),
-                $file
-            );
-            $img = new Image();
-            $img->setName($file);
-            $projects -> setImgBefore($img);
-
-
-            $file = md5(uniqid()) . '.' . $imgAfter->guessExtension();
-            $imgAfter -> move(
-                $this->getParameter('images_directory'),
-                $file
-            );
-            $img = new Image();
-            $img->setName($file);
-            $projects -> setImgAfter($img);
-
+            if($form['imgAfter']->getData() == null){
+                $projects-> setImgAfter($obligFile);
+            }
+            else {
+                $file = md5(uniqid()) . '.' . $imgAfter->guessExtension();
+                $imgAfter->move(
+                    $this->getParameter('images_directory'),
+                    $file
+                );
+                $img = new Image();
+                $img->setName($file);
+                $projects->setImgAfter($img);
+            }
             $em = $this->getDoctrine()->getManager();
             $em->persist($projects);
             $em->flush();
@@ -183,15 +197,16 @@ class ProjectController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="delete", requirements={"id":"\d+"}, methods={"DELETE"})
      * @param projects $projects
      * @return RedirectResponse
      */
     public function delete(projects $projects)
     {
         $em = $this->getDoctrine()->getManager();
-        $em->remove($projects);
-        $em->flush();
+
+            $em->remove($projects);
+            $em->flush();
 
         $this->addFlash('message', 'Projet supprimé avec succès');
         return $this->redirectToRoute('admin_project_home');

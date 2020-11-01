@@ -48,12 +48,12 @@ class Projects
     private  $image;
 
     /**
-     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgAfter", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgAfter", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $imgAfter;
 
     /**
-     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgBefore", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgBefore", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $imgBefore;
 
@@ -185,4 +185,7 @@ class Projects
 
         return $this;
     }
+
+
+
 }
