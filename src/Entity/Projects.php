@@ -48,12 +48,12 @@ class Projects
     private  $image;
 
     /**
-     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgAfter", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgAfter", cascade={"persist", "remove"})
      */
     private $imgAfter;
 
     /**
-     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgBefore", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgBefore", cascade={"persist", "remove"})
      */
     private $imgBefore;
 
@@ -130,9 +130,10 @@ class Projects
         return $this->image;
     }
 
+
     public function addImage(image $image): self
     {
-        if ($image && !$this->image->contains($image)) {
+        if (!$this->image->contains($image)) {
             $this->image[] = $image;
             $image->setProjects($this);
         }

@@ -134,6 +134,7 @@ class CategoryController extends AbstractController
      */
     public function delete(Category $category)
     {
+
         $em = $this->getDoctrine()->getManager();
         $em->remove($category);
         $em->flush();
@@ -161,5 +162,6 @@ class CategoryController extends AbstractController
         }else{
             return new JsonResponse(['error' => 'Token Invalide'], 400);
         }
+
     }
 }

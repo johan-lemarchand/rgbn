@@ -14,7 +14,7 @@
                     <h2 class="carrousel_title">{{ categorys.name }}</h2>
 
                     <img class="" alt="Responsive image"
-                         src="{{ asset('uploads/' ~ categorys.image.name) }}">
+                         src="{{ asset('uploads/' ~ categorys.image.name|default('undefined')) }}">
                 </div>
                 <a class="arrow arrow-prev" href="#item-3"></a>
                 <a class="arrow arrow-next" href="#item-2"></a>
@@ -28,7 +28,7 @@
                 <div class="carrousel-box">
                     <h2 class="carrousel_title">{{ categorys.name }}</h2>
                     <img class="" alt="Responsive image"
-                         src="{{ asset('uploads/' ~ categorys.image.name) }}">
+                         src="{{ asset('uploads/' ~ categorys.image.name|default('undefined')) }}">
                 </div>
                 <a class="arrow arrow-prev" href="#item-1"></a>
                 <a class="arrow arrow-next" href="#item-3"></a>
@@ -41,7 +41,7 @@
                 <div class="carrousel-box">
                     <h2 class="carrousel_title">{{ categorys.name }}</h2>
                     <img class="" alt="Responsive image"
-                         src="{{ asset('uploads/' ~ categorys.image.name) }}">
+                         src="{{ asset('uploads/' ~ categorys.image.name|default('undefined')) }}">
                 </div>
                 <a class="arrow arrow-prev" href="#item-2"></a>
                 <a class="arrow arrow-next" href="#item-1"></a>

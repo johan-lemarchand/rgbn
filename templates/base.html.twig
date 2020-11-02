@@ -24,7 +24,7 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
             <script>
                 $('.custom-file-input').on('change', function(event) {
-                    var inputFile = event.currentTarget;
+                    const inputFile = event.currentTarget;
                     $(inputFile).parent()
                         .find('.custom-file-label')
                         .html(inputFile.files[0].name);
@@ -34,6 +34,7 @@
                     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
                     crossorigin=""></script>
             <script src="{{ asset('js/component/map.js') }}" type="text/javascript"> </script>
+            <script src="{{ asset('js/images.js') }}"></script>
         {% endblock %}
     </body>
 </html>

@@ -1,4 +1,5 @@
-window.onload = () => {
+window.onload = () =>  {
+
     let links = document.querySelectorAll("[data-delete]")
 
     for(link of links){
@@ -25,5 +26,6 @@ window.onload = () => {
                 }).catch(e => alert(e))
             }
         })
+
     }
 }

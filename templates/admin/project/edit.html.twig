@@ -15,7 +15,7 @@
                     {% for images in project.image %}
                         <div class="row_project_img">
                             <img src="{{ asset('uploads/' ~ images.name|default('undefined')) }}" alt="image">
-                            <a href="{{ path('admin_project_delete_image', {'id': images.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ images.id) }}">supprimer</a>
+                           {# <a href="{{ path('admin_project_delete_image', {'id': images.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ images.id) }}">supprimer</a>#}
                         </div>
                     {% endfor %}
                 </div>
@@ -26,7 +26,7 @@
                 {% if project.imgBefore is null %}
                     {% else %}
                         <img src="{{ asset('uploads/' ~ project.imgBefore.name|default('undefined')) }}" alt="image">
-                        <a href="{{ path('admin_project_delete_image', {'id': project.imgBefore.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imgBefore.id) }}">supprimer</a>
+                        {#<a href="{{ path('admin_project_delete_image', {'id': project.imgBefore.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imgBefore.id) }}">supprimer</a>#}
                 {% endif %}
 
             </div>
@@ -35,13 +35,10 @@
             {% if project.imgAfter is null %}
             {% else %}
                 <img src="{{ asset('uploads/' ~ project.imgAfter.name|default('undefined')) }}" alt="image">
-            <a href="{{ path('admin_project_delete_image', {'id': project.imgAfter.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imgAfter.id) }}">supprimer</a>
+            {#<a href="{{ path('admin_project_delete_image', {'id': project.imgAfter.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imgAfter.id) }}">supprimer</a>#}
             {% endif %}
         </div>
     </div>
     {{ form_end(form) }}
 {% endblock %}
 
-{% block javascripts %}
-<script src="{{ asset('js/images.js') }}"></script>
-{% endblock %}

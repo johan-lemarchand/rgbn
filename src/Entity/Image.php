@@ -32,7 +32,7 @@ class Image
     private $category;
 
     /**
-     * @ORM\ManyToOne (targetEntity=Projects::class, inversedBy="image", cascade={"remove"})
+     * @ORM\ManyToOne (targetEntity=Projects::class, inversedBy="image", cascade={"remove", "persist"})
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $projects;
@@ -119,7 +119,7 @@ class Image
 
         // set (or unset) the owning side of the relation if necessary
         $newImgAfter = null === $imgAfter ? null : $this;
-        if ($imgAfter->getImgAfter() !== $newImgAfter) {
+        if ($imgAfter && $imgAfter->getImgAfter() !== $newImgAfter) {
             $imgAfter->setImgAfter($newImgAfter);
         }
 
@@ -137,7 +137,7 @@ class Image
 
         // set (or unset) the owning side of the relation if necessary
         $newImgBefore = null === $imgBefore ? null : $this;
-        if ($imgBefore->getImgBefore() !== $newImgBefore) {
+        if ($imgBefore && $imgBefore->getImgBefore() !== $newImgBefore) {
             $imgBefore->setImgBefore($newImgBefore);
         }
 

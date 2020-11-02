@@ -22,7 +22,11 @@
                 <a class="box-footer_box-p-link" href=""> Services</a>  <br> <br>
                 <a class="box-footer_box-p-link" href=""> Nos réalisations</a>  <br> <br>
                 <a class="box-footer_box-p-link" href=""> Contact</a>  <br> <br> <br>
+                {% if app.user %}
+                    <a class="box-footer_box-p-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                {% else %}
                 <a class="box-footer_box-p-link" target="_blank" href="{{ path('app_login') }}">Se connecter</a>
+                {% endif %}
             </p>
         </div>
     </div>

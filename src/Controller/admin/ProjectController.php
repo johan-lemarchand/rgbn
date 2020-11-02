@@ -203,8 +203,11 @@ class ProjectController extends AbstractController
      */
     public function delete(projects $projects)
     {
-        $em = $this->getDoctrine()->getManager();
 
+        $em = $this->getDoctrine()->getManager();
+        $projects->setImgAfter(null);
+        $projects->setImgBefore(null);
+        $em->flush();
             $em->remove($projects);
             $em->flush();
 
@@ -221,12 +224,9 @@ class ProjectController extends AbstractController
     public function deleteImage(Image $image, Request $request)
     {
         $data = json_decode($request->getContent(), true );
-        if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])) {
+        if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token']))  {
             $nom = $image->getName();
-
             unlink($this->getParameter('images_directory') . '/' . $nom);
-
-
             $em = $this->getDoctrine()->getManager();
             $em->remove($image);
             $em->flush();
@@ -235,5 +235,6 @@ class ProjectController extends AbstractController
         }else{
             return new JsonResponse(['error' => 'Token Invalide'], 400);
         }
+
     }
 }
