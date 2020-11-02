@@ -45,7 +45,7 @@ class MainController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $email = (new TemplatedEmail())
                 ->from($contact->get('email')->getData())
-                ->to('rgbn-stephanegicquel@orange.fr')
+                ->to('rgbn@rgbn.johan-lemarchand.fr')
                 ->subject('contact pour un devis ou demande de renseignement')
                 ->htmlTemplate('email/contact.html.twig')
                 ->context([

@@ -4,12 +4,13 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block body %}
     {% include'home/header.html.twig' %}
-    {% for message in app.flashes('message') %}
-    <div class="alert alert-success" role="alert">{{ message }}</div>
-    {% endfor %}
+    
     <div class="container_contact " style="margin-top:200px">
     <div class="box_contact">
     <h1>Formulaire de contact</h1>
+    {% for message in app.flashes('message') %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
     {{ form(form) }}
     </div>
     </div>
