@@ -18,7 +18,7 @@ class ContactType extends AbstractType
         $builder
             ->add('message', CKEditorType::class, [
                 'attr' => array(
-                    'placeholder' => 'Entrr votre description'
+                    'placeholder' => 'Entrer votre description'
                 ),
                 'label' => 'Votre message : '
             ])

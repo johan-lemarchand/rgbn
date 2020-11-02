@@ -37,7 +37,7 @@
                  src="{{ asset('assets/images/line.png') }}"> <br>
             <p class="box-footer_box-p">
                 {% for partners in partner %}
-                <a class="box-footer_box-p-link" href=""> {{ partners.name }}</a> <br> <br>
+                <a class="box-footer_box-p-link" href="{{ partners.link }}" target="_blank"> {{ partners.name }}</a> <br> <br>
                 {% endfor %}
 
             </p>

@@ -22,11 +22,10 @@ let mymap = null;
         marker.bindPopup('RGBN');
     }
 
-    window.onload = function(){
-    // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
-        initMap();
-    };
+    window.addEventListener("load", initMap);
+    
 
     $("body").on("shown.bs.modal", function (e) {
     setTimeout(function(){ mymap.invalidateSize()}, 100);
 })
+
