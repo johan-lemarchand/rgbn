@@ -43,7 +43,7 @@ class Projects
     private $category;
 
     /**
-     * @ORM\OneToMany (targetEntity=Image::class, mappedBy="projects", cascade={"persist","remove"}, orphanRemoval=true)
+     * @ORM\OneToMany (targetEntity=Image::class, mappedBy="projects", cascade={"persist","remove"})
      */
     private  $image;
 

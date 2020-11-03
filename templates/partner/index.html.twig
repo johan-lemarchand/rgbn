@@ -12,7 +12,7 @@
                         {% for partners in partner %}
                         <div class="col s4 box_page_partner">
                             <a href="{{ partners.link }}" target="">
-                                <img class="responsive-img" src="{{ asset('uploads/' ~ partners.image.name) }}">
+                                <img class="responsive-img" src="{{ asset('uploads/' ~ partners.image.name|default('undefined')) }}">
                             </a>
                             <div class="mt-5">
                             <a href="tel:{{ partners.phone }}" class="mt-4 ">{{ partners.phone }}</a>

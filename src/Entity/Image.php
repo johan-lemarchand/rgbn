@@ -32,7 +32,7 @@ class Image
     private $category;
 
     /**
-     * @ORM\ManyToOne (targetEntity=Projects::class, inversedBy="image", cascade={"remove", "persist"})
+     * @ORM\ManyToOne (targetEntity=Projects::class, inversedBy="image", cascade={"persist"})
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $projects;
