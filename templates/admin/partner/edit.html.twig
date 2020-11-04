@@ -15,7 +15,7 @@
             <div class="row_project_img">
                 {% if partner.image is null %}
                 {% else %}
-                <img src="{{ asset('uploads/' ~ partner.image.name|default('undefined')) }}" alt="image">
+                <img src="{{ asset('uploads/' ~ partner.image.name|default('undefined'))|imagine_filter('image_partner') }}" alt="image">
                 <a href="{{ path('admin_partner_delete_image', {'id': partner.image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ partner.image.id) }}">supprimer</a>
                 {% endif %}
             </div>

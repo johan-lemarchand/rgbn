@@ -11,7 +11,7 @@
                     <p class="card-title">{{ p.title}}</p>
             {% if p.imgAfter is null %}
         {% else %}
-                    <img class="responsive-img" src="{{ asset('uploads/' ~ p.imgAfter.name|default('undefined')) }}">
+                    <img class="responsive-img" src="{{ asset('uploads/' ~ p.imgAfter.name|default('undefined'))|imagine_filter('image_project') }}">
             {% endif %}
                 </a>
             </div>

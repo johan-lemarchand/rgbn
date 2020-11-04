@@ -736,9 +736,10 @@ img.responsive-img {
     position: absolute;
     background-color: white;
     color: #555555;
+    left: 320px;
 }
 .project-single-title-two {
-    position: absolute;
+    position: relative;
     background-color: white;
     height: 40px;
     right: 83px;

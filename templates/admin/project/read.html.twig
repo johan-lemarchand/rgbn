@@ -21,7 +21,7 @@
         <div class="container_project_img">
             {% for images in project.image %}
                 <div class="row_project_img">
-                    <img src="{{ asset('uploads/' ~ images.name|default('undefined')) }}" alt="">
+                    <img src="{{ asset('uploads/' ~ images.name|default('undefined'))|imagine_filter('image_project')}}" alt="">
 
                 </div>
             {% endfor %}

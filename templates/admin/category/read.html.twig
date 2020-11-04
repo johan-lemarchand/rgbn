@@ -14,7 +14,7 @@
       <div class="card mb-3">
                 <h3 class="card-header">{{ category.name }} </h3>
 
-          <img src="{{ asset('uploads/' ~ category.image.name|default('undefined'))}}" alt="">
+          <img src="{{ asset('uploads/' ~ category.image.name|default('undefined'))|imagine_filter('image_category')}}" alt="">
 
 
             </div>

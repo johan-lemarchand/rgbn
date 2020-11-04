@@ -11,7 +11,7 @@
                         {% for partners in partner %}
                         <div class="col s4 box_page_partner">
                             <a href="{{ partners.link }}" target="_blank">
-                                <img class="" src="{{ asset('uploads/' ~ partners.image.name|default('undefined')) }}" alt="">
+                                <img class="" src="{{ asset('uploads/' ~ partners.image.name|default('undefined'))|imagine_filter('image_partner') }}" alt="">
                             </a>
                             <div class="">
                                 <a href="{{ partners.link }}" target="_blank">{{ partners.link }}</a> <br>

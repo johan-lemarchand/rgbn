@@ -14,7 +14,7 @@
                 <div class="container_project_img">
                     {% for images in project.image %}
                         <div class="row_project_img">
-                            <img src="{{ asset('uploads/' ~ images.name|default('undefined')) }}" alt="image">
+                            <img src="{{ asset('uploads/' ~ images.name|default('undefined'))|imagine_filter('image_project') }}" alt="image">
                            <a href="{{ path('admin_project_delete_image', {'id': images.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ images.id) }}">supprimer</a>
                         </div>
                     {% endfor %}
@@ -25,7 +25,7 @@
                 <h2>avant:</h2>
                 {% if project.imgBefore is null %}
                     {% else %}
-                        <img src="{{ asset('uploads/' ~ project.imgBefore.name|default('undefined')) }}" alt="image">
+                        <img src="{{ asset('uploads/' ~ project.imgBefore.name|default('undefined'))|imagine_filter('image_project_two') }}" alt="image">
                         <a href="{{ path('admin_project_delete_image', {'id': project.imgBefore.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imgBefore.id) }}">supprimer</a>
                 {% endif %}
 
@@ -34,7 +34,7 @@
             <h2>après:</h2>
             {% if project.imgAfter is null %}
             {% else %}
-                <img src="{{ asset('uploads/' ~ project.imgAfter.name|default('undefined')) }}" alt="image">
+                <img src="{{ asset('uploads/' ~ project.imgAfter.name|default('undefined'))|imagine_filter('image_project_two') }}" alt="image">
             <a href="{{ path('admin_project_delete_image', {'id': project.imgAfter.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imgAfter.id) }}">supprimer</a>
             {% endif %}
         </div>

@@ -75,9 +75,6 @@
     "doctrine/persistence": {
         "version": "2.0.0"
     },
-    "doctrine/reflection": {
-        "version": "1.2.1"
-    },
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
@@ -96,6 +93,9 @@
             "config/packages/fos_ckeditor.yaml"
         ]
     },
+    "imagine/imagine": {
+        "version": "1.2.4"
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
@@ -104,6 +104,19 @@
     },
     "laminas/laminas-zendframework-bridge": {
         "version": "1.1.1"
+    },
+    "liip/imagine-bundle": {
+        "version": "1.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.8",
+            "ref": "5a5bdc2d0e2533ed6935d5ae562f2b318a8fc1ee"
+        },
+        "files": [
+            "config/packages/liip_imagine.yaml",
+            "config/routes/liip_imagine.yaml"
+        ]
     },
     "monolog/monolog": {
         "version": "2.1.1"
@@ -462,6 +475,9 @@
     },
     "symfony/string": {
         "version": "v5.1.7"
+    },
+    "symfony/templating": {
+        "version": "v5.1.8"
     },
     "symfony/test-pack": {
         "version": "v1.0.6"
