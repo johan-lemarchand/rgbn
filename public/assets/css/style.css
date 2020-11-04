@@ -693,7 +693,7 @@ img.responsive-img {
     max-width: 252px;
     min-height: 306px;
     width: 100%;
-    border-radius: 15px;
+    border:none;
     display: flex;
     background-size: cover;
     background-repeat: no-repeat;
