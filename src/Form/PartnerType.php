@@ -52,17 +52,20 @@ class PartnerType extends AbstractType
                 'attr' => array(
                     'placeholder' => 'Entrer une activité'
                 ),
-                'label' => 'activité 1:'))
+                'label' => 'activité 1:',
+                'required' => false))
             ->add('activityTwo', TextType::class,array(
                 'attr' => array(
                     'placeholder' => 'Entrer une activité'
                 ),
-                'label' => 'activité 2:'))
+                'label' => 'activité 2:',
+                'required' => false))
             ->add('activityThree', TextType::class,array(
                 'attr' => array(
                     'placeholder' => 'Entrer une activité'
                 ),
-                'label' => 'activité 3:'))
+                'label' => 'activité 3:',
+                'required' => false))
             ->add('Valider', SubmitType::class)
         ;
     }

@@ -17,7 +17,18 @@
                                 <a href="{{ partners.link }}" target="_blank">{{ partners.link }}</a> <br>
                             <a href="tel:{{ partners.phone }}" class="mt-4 ">{{ partners.phone }}</a>
                             <p>{{ partners.content }} <br>
-                                - {{ partners.activityOne }} <br>- {{ partners.activityTwo }} <br>- {{ partners.activityThree }}
+                                {% if partners.activityOne is null %}
+                        {% else %}
+                                - {{ partners.activityOne }} <br>
+                                {% endif %}
+                                {% if partners.activityTwo is null %}
+                        {% else %}
+                            - {{ partners.activityTwo }} <br>
+                                {% endif %}
+                                {% if partners.activityThree is null %}
+                        {% else %}
+                            - {{ partners.activityThree }}
+                                {% endif %}
                             </p>
 
                             </div>

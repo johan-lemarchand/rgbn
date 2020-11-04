@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3112c318-be52-42b6-ad83-c70734bd36c1" name="Default Changelist" comment="" />
+    <list default="true" id="3112c318-be52-42b6-ad83-c70734bd36c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/uploads/3c8ebdf0ca12c5a67e0d81908ead356c.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PartnerType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PartnerType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partner/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partner/index.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,7 +174,7 @@
       <workItem from="1603746844523" duration="7876000" />
       <workItem from="1603784092536" duration="26898000" />
       <workItem from="1604476651777" duration="33000" />
-      <workItem from="1604476697999" duration="7482000" />
+      <workItem from="1604476697999" duration="8284000" />
     </task>
     <servers />
   </component>
