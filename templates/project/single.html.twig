@@ -6,23 +6,21 @@
     {% include'home/header.html.twig' %}
     <h1 class="p_project ml-5 " style="margin-top:200px"> {{ projects.title }}</h1>
     <div class="flex-container m-5" >
+        <h2 class="project-single-title-one">Avant</h2>
+        <img class="project-single-img" src="{{ asset('uploads/' ~ projects.imgBefore.name|default('undefined')) }}" alt="photo avant">
         <div class="project-single-boxtwo-one">
             <h2 class="d-flex justify-content-center">Détail du projet</h2>
             <p class="project-single-p">{{ projects.content }}</p>
         </div>
-        <div class="d-flex " style="max-width:630px">
-            <h2 class="project-single-title-one">Avant</h2>
-            <img class="project-single-img" src="{{ asset('uploads/' ~ projects.imgAfter.name|default('undefined')) }}" alt="photo avant">
-            <img class="project-single-img" src="{{ asset('uploads/' ~ projects.imgBefore.name|default('undefined')) }}" alt="photo après">
-            <h2 class="project-single-title-two">Après</h2>
-        </div>
+        <img class="project-single-img" src="{{ asset('uploads/' ~ projects.imgAfter.name|default('undefined')) }}" alt="photo après">
+        <h2 class="project-single-title-two">Après</h2>
     </div>
 
 
     <div class="project-single-boxtwo">
         <div class="project-single-boxtwo-two">
             {% for images in projects.image %}
-                <img class="project-img " src="{{ asset('uploads/' ~ images.name) }}">
+                <img class="project-img " src="{{ asset('uploads/' ~ images.name|default('undefined')) }}">
             {% endfor %}
         </div>
     </div>

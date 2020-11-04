@@ -6,23 +6,25 @@
     {% include'home/header.html.twig' %}
     <div class="card-panel hoverable" style="margin-top:200px">
         <div class="container">
-            <p>
                 <section class="grayscale">
                     <div class="row">
                         {% for partners in partner %}
                         <div class="col s4 box_page_partner">
-                            <a href="{{ partners.link }}" target="">
-                                <img class="responsive-img" src="{{ asset('uploads/' ~ partners.image.name|default('undefined')) }}">
+                            <a href="{{ partners.link }}" target="_blank">
+                                <img class="" src="{{ asset('uploads/' ~ partners.image.name|default('undefined')) }}" alt="">
                             </a>
-                            <div class="mt-5">
+                            <div class="">
+                                <a href="{{ partners.link }}" target="_blank">{{ partners.link }}</a> <br>
                             <a href="tel:{{ partners.phone }}" class="mt-4 ">{{ partners.phone }}</a>
-                            <p>{{ partners.content }}</p>
+                            <p>{{ partners.content }} <br>
+                                - {{ partners.activityOne }} <br>- {{ partners.activityTwo }} <br>- {{ partners.activityThree }}
+                            </p>
+
                             </div>
                         </div>
                         {% endfor %}
                     </div>
                 </section>
-            </p>
         </div>
     </div>
     {% include'home/footer.html.twig' %}

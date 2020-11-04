@@ -48,12 +48,12 @@ class Projects
     private  $image;
 
     /**
-     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgAfter", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgAfter", cascade={"persist"})
      */
     private $imgAfter;
 
     /**
-     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgBefore", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgBefore", cascade={"persist"})
      */
     private $imgBefore;
 

@@ -42,6 +42,21 @@ class Partner
      */
     private $link;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $activityOne;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $activityTwo;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $activityThree;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,6 +124,42 @@ class Partner
     public function setLink(?string $link): self
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function getActivityOne(): ?string
+    {
+        return $this->activityOne;
+    }
+
+    public function setActivityOne(?string $activityOne): self
+    {
+        $this->activityOne = $activityOne;
+
+        return $this;
+    }
+
+    public function getActivityTwo(): ?string
+    {
+        return $this->activityTwo;
+    }
+
+    public function setActivityTwo(?string $activityTwo): self
+    {
+        $this->activityTwo = $activityTwo;
+
+        return $this;
+    }
+
+    public function getActivityThree(): ?string
+    {
+        return $this->activityThree;
+    }
+
+    public function setActivityThree(?string $activityThree): self
+    {
+        $this->activityThree = $activityThree;
 
         return $this;
     }

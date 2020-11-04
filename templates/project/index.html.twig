@@ -9,7 +9,7 @@
         <div class="card">
             <a href="{{ path('category_read', {id: categorys.id}) }}">
                 <p class="card-title">{{ categorys.name }}</p>
-                <img class="responsive-img" src="{{ asset('uploads/' ~ categorys.image.name) }}">
+                <img class="responsive-img" src="{{ asset('uploads/' ~ categorys.image.name|default('undefined')) }}">
             </a>
         </div>
         {% endfor %}
