@@ -236,7 +236,7 @@
 
 }
 .carrousel_title {
-    font-family: Montserrat-Bold, Serif;
+    font-family: Montserrat-Bold, serif;
     color: white;
     font-size: 29px;
 }
@@ -261,7 +261,6 @@
     color: white;
 }
 .carrousel-box h2{
-    display: flex;
     justify-content: center;
     align-items: flex-end;
     height: 350px;
