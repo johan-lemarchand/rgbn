@@ -689,7 +689,7 @@ img.responsive-img {
 }
 .flex-container .card {
     box-sizing: border-box;
-    margin: 1em;
+    margin: 20px;
     max-width: 252px;
     min-height: 306px;
     width: 100%;
@@ -698,7 +698,7 @@ img.responsive-img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    margin: 0;
+
 }
 
 .flex-container .card .card-title {
