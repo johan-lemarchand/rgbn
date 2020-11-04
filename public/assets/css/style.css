@@ -684,12 +684,12 @@ img.responsive-img {
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 50px;
 }
 .flex-container .card {
     box-sizing: border-box;
-    margin: 0.25em;
+    margin: 1em;
     max-width: 252px;
     min-height: 306px;
     width: 100%;
@@ -698,6 +698,7 @@ img.responsive-img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    margin: 0;
 }
 
 .flex-container .card .card-title {
