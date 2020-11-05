@@ -9,9 +9,9 @@
             <div class="card">
                 <a href="{{ path('project_single', {id: p.id}) }}">
                     <p class="card-title">{{ p.title}}</p>
-            {% if p.imgAfter is null %}
+            {% if p.imageAfter is null %}
         {% else %}
-                    <img class="responsive-img" src="{{ asset('uploads/' ~ p.imgAfter.name|default('undefined'))|imagine_filter('image_project') }}">
+                    <img class="responsive-img" src="{{ asset('uploads/' ~ p.imageAfter.name|default('undefined'))|imagine_filter('image_project') }}">
             {% endif %}
                 </a>
             </div>
