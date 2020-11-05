@@ -31,11 +31,12 @@
                          src="{{ asset('uploads/' ~ categorys.image.name|default('undefined'))|imagine_filter('image_category') }}">
                 </div>
                 <a class="arrow arrow-prev" href="#item-1"></a>
-                <a class="arrow arrow-next" href="#item-3"></a>
+                <a class="arrow arrow-next" href="#item-1"></a>
             </a>
             {% endfor %}
         </div>
-        <div class="carousel-i item-3">
+
+  {#      <div class="carousel-i item-3">
             {% for categorys in category|slice(6, 3) %}
             <a href="#">
                 <div class="carrousel-box">
@@ -47,7 +48,7 @@
                 <a class="arrow arrow-next" href="#item-1"></a>
             </a>
             {% endfor %}
-        </div>
+        </div>#}
     </div>
 </div>
 </div>

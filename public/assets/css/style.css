@@ -775,8 +775,8 @@ img.responsive-img {
 .project-img {
     display: flex;
     flex-wrap: wrap;
-    width: 200px;
-    height: 200px;
+    width: 320px;
+    height: 250px;
     margin-right: 10px;
 }
 .project-single-img {
