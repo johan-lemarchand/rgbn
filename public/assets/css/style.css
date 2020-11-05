@@ -554,8 +554,9 @@
     width: 100px;
 }
 .row_project_img{
-    width: 50%;
+    width: 20%;
     height: 50%;
+    margin-left: 20px;
 }
 .container_project_img{
     width: 100%;

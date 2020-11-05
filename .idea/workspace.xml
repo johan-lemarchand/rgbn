@@ -2,10 +2,131 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3112c318-be52-42b6-ad83-c70734bd36c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/uploads/3c8ebdf0ca12c5a67e0d81908ead356c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201104233202.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/00fcc040d267fadc3860a71c35bffc30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/0150ea557f1cecfca251f48d84958f23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/06772d711bec76e8bf67ec5b719d3948.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/0a0177157ca4651530f928a34c4dbe34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/0a75174e714585adfd9c846cd9d7d5d5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/1029957b9b6b7224298ee2042f17724b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/107b56edcb548d5d8533f4da3462f82c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/157334f899c6d3f8c7eff33fd8dd36aa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/1756a9b8d88822ed4de506dd43ef3e98.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/175758b4c449730dff1dcb1cd719a5c9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/17eaf71328815e300586fb1de2bfd755.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/19241e494fec44439c2df3d397df4242.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/1954e949debf23bb32f1206dd38dbb9b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/1ad5e084f20123bbc0fbc2c9de73f19e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/1d1ad14702f6184fbeb3c45bfd492a7a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/1d4f3d03aaba630f5f0ea74d50a678bd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/23b5a378027a70e694d7bdd04e0d4f8f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/29700b2184ee48197c6de595fb70fb9e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/29715208626dcd23f75a816577683a39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/2e6022ea713ff82ea6d8e71b8c1c6025.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/2eb96dbf74aaf44cc7d64642213bfb98.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/2f72ef1d0424453cf68ce00b7018972f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/30356eeab4ca89f502e6da9a429b4306.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/3206c8a9ae504b86d7f1a40bff344f92.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/337aad6030f709d93270a16daf38b072.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/367adca87ac8f8449d186887a93eb445.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/3afe4cfd97ec4f16c8ca99cfee6d5b23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/3db6a20af2bb1ab97f567c3a8520d2df.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/3e5d0e0662049943a10706b0c928aa72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/4157f7ed56c733c8842d127ac2432a24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/4af34a64743883f494d11f73dbf330a0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/4d42348ba2da42c2ce18bb0f0aefbdca.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/4df340d9e7fe03dcbcbfc61f39c1be7f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/4e901c27da341e392ae577a927931858.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/519fc45cd7c82da1c2bc9f58305ae86c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/52c0d908ef515d834d83e84372bdf3b5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/55f7f34e7afbd056a3a0aba794c13829.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/565de68ebdbcfb7854d8dbe7f3178412.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/597d1ce92c6c921ad017ac4291270190.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/5af1244bf44a3d3420127c83b9015bfe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/5cc74f6ad08e6511a741d1c9f7499518.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/5d090d468d54a866d9bb0009e15df70d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/5f59a810076ba6cecbed795869bbae28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/64c4467f08b0a60096cc49aac8da960e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/65fc6d749e91c6c3d69fb3bea5e8070f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/678e70f548e351604cb5e273433a5e33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/6b816fca8dd2a3cdec2e57cdf8f36706.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/6ce5e16b6a65bdf1d90efe054d4fe6c7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/6cff5fca6939ee194ff4193500011c05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/6d29833aaf71dc203fe84ab65cceea75.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/6efbd6788e3710ddab3db50929cc6ba2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/72e21b4ac95e51e0896ff8e4dcd5df65.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/748c4f904b9a033fa700de606cb3c269.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/76b2b631213f11166a62a9bc12a09024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/7998787bd12e45f710ff1adde3a41b9a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/7b97d90db05174deff368729da4dbdf8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/7fc2da80d416c246ca39d9fe202007cf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/80bf4207536009155f2871aee14c0823.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/81f2c70e4f5f072da4dbd3a9071bc696.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/82de30bf8b15e3c689a1b463207eb2cc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/8389ad39d8bf0ea60cafbc39cd971427.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/863b1756b495908afc7b87882c06e247.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/8a758cfe7027006ee170f05f1df7190e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/8d1a809a67c3dda5920274e9400e1f81.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/928c99a4e7ab007164334198854caa78.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/93beb3ad6782e6c4ad3a195bb1e4e597.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/95e175c8155c5c4c1cdd181fac5375c3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/96aab43b0cb77467e72138aedfe065f1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/980499999e4d353c2f439a8578234e00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/a118cfd48b344046e641d5bf100b4ceb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/a1483ac83fec07116186662bd8d80c80.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/acd60f9177128d0c5dc7a1b8a1ff7369.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/ad325609e0b7ef6042a2ec4ca4351c64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/ad526d0c5f420b9deb23a9acb947c589.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/adc4a8b5eb108b07542a4b4ca6ea0f5a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/aeef4d25f542f9d4fda1a281bc9a01b5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/b0ccffb4af99e7381e729bf94902449a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/b7cd28ccb34d50abaf89a780d3111a98.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/ba4007048ae14f54056d5d0ac431d697.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/ba7c020bc970fbec68073eac36bf1446.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/bd46e9f2ba5473094f092efb291ad270.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/bf25af4182f2f7ec3440d60f48cdbc9e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/c2bee3d44d9a05c25de937c702da3aa5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/c34a6ef8e98fd85423a75250fcf09b84.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/c6700b10117a43e2702ee481dca388e3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/c859b15dddc8209fb4c3c3402a0caa61.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/c8a50e68509c98fc3c0dbce555f84635.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/c9e87faa160fa6b7fbb3936564bedb3b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/cb7f892d6a169fc759fec51fecfa752d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/d1f9027aa5e12dc8a1242848c60b7a01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/d21ce6e60a7abf2d13d736426c197db9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/d5f03207fb0677aea502bc1c82ccfef7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/d669bb3b17b6e417d2d0648e52f7ac46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/d710e164c0746acc6ed73fdb16470522.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/d74af922778b3022d5ce187395ce1527.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/da1f61950959b5309cd9c1a8348d5869.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/dc22eed67472af46c4460507d8b8f01d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/e02f2c7a512695c8b5b6b42b2d49fa72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/e06998abca7582a70a33349f147b0916.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/e4512b868e639a560a57c0843d33fb66.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/e8e0f940d1a372a5bbd121669ee1d2e1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/e90e58aff0d5f1dc1ed475b404341edf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/eb2d98fd22bcf0d1bf67c3cd5623e0ca.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/ecd50a61236b23d89b4868e13c312683.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/ed089b5f5b49e4846ccf8ee50b7ebe3c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/ee66b127e4612ebcb323e95f7fdb12b1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/eefc34c2d543cc46c33849bd2e3f3e0f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/f20d994e172cef28f42b4845c2a2734d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/f356858012b22fca578a6c3aa8a653ce.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/f6c4c077c6a9c0ae95f11f03ed54a24b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/fc2cdf5222c01f74885a3271ec0009fe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/fdc2ce437b1005f5ae189f9a5697264e.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/ff11edd4dd756973da1737267d0a2d24.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PartnerType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PartnerType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/partner/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partner/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201103170424.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201103233108.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/admin/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/ProjectController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Image.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Image.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Projects.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Projects.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ProjectsType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProjectsType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/project/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/project/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/project/read.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/project/read.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +295,9 @@
       <workItem from="1603746844523" duration="7876000" />
       <workItem from="1603784092536" duration="26898000" />
       <workItem from="1604476651777" duration="33000" />
-      <workItem from="1604476697999" duration="8284000" />
+      <workItem from="1604476697999" duration="17125000" />
+      <workItem from="1604512469394" duration="9816000" />
+      <workItem from="1604561089492" duration="1864000" />
     </task>
     <servers />
   </component>

@@ -40,7 +40,7 @@ class ProjectsType extends AbstractType
                 'mapped' => false,
                 'required' => false
             ])
-            ->add('imgBefore', FileType::class,[
+            ->add('imageBefore', FileType::class,[
                 'attr' => array(
                     'placeholder' => 'Choisir une photo avant'
                 ),
@@ -49,7 +49,7 @@ class ProjectsType extends AbstractType
                 'mapped' => false,
                 'required' => false
             ])
-            ->add('imgAfter', FileType::class,[
+            ->add('imageAfter', FileType::class,[
                 'attr' => array(
                     'placeholder' => 'Choisir une photo après'
                 ),

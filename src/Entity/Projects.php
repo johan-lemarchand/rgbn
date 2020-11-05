@@ -47,15 +47,18 @@ class Projects
      */
     private  $image;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgAfter", cascade={"persist"})
-     */
-    private $imgAfter;
 
     /**
-     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="imgBefore", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity=ImageBefore::class, mappedBy="imgBefore", cascade={"persist", "remove"})
      */
-    private $imgBefore;
+    private $imageBefore;
+
+    /**
+     * @ORM\OneToOne(targetEntity=ImageAfter::class, mappedBy="imgAfter", cascade={"persist", "remove"})
+     */
+    private $imageAfter;
+
+
 
     public function __construct()
     {
@@ -131,9 +134,9 @@ class Projects
     }
 
 
-    public function addImage(image $image): self
+    public function addImage(?image $image): self
     {
-        if (!$this->image->contains($image)) {
+        if ($image && !$this->image->contains($image)) {
             $this->image[] = $image;
             $image->setProjects($this);
         }
@@ -154,39 +157,43 @@ class Projects
         return $this;
     }
 
-    public function getImgAfter(): ?Image
+
+
+    public function getImageBefore(): ?ImageBefore
     {
-        return $this->imgAfter;
+        return $this->imageBefore;
     }
 
-    public function setImgAfter(?Image $imgAfter): self
+    public function setImageBefore(?ImageBefore $imageBefore): self
     {
-        $this->imgAfter = $imgAfter;
+        $this->imageBefore = $imageBefore;
+
         // set (or unset) the owning side of the relation if necessary
-        $newProjects = null === $imgAfter ? null : $this;
-        if ($imgAfter && $imgAfter->getProjects() !== $newProjects) {
-            $imgAfter->setProjects($newProjects);
-        }
-        return $this;
-    }
-
-    public function getImgBefore(): ?Image
-    {
-        return $this->imgBefore;
-    }
-
-    public function setImgBefore(?Image $imgBefore): self
-    {
-        $this->imgBefore = $imgBefore;
-        // set (or unset) the owning side of the relation if necessary
-        $newProjects = null === $imgBefore ? null : $this;
-        if ($imgBefore && $imgBefore->getProjects() !== $newProjects) {
-            $imgBefore->setProjects($newProjects);
+        $newImgBefore = null === $imageBefore ? null : $this;
+        if ($imageBefore && $imageBefore->getImgBefore() !== $newImgBefore) {
+            $imageBefore->setImgBefore($newImgBefore);
         }
 
         return $this;
     }
 
+    public function getImageAfter(): ?ImageAfter
+    {
+        return $this->imageAfter;
+    }
+
+    public function setImageAfter(?ImageAfter $imageAfter): self
+    {
+        $this->imageAfter = $imageAfter;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newImgAfter = null === $imageAfter ? null : $this;
+        if ($imageAfter && $imageAfter->getImgAfter() !== $newImgAfter) {
+            $imageAfter->setImgAfter($newImgAfter);
+        }
+
+        return $this;
+    }
 
 
 }

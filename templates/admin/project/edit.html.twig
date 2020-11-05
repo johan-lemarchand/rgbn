@@ -23,19 +23,19 @@
 
             <div class="row_project_img">
                 <h2>avant:</h2>
-                {% if project.imgBefore is null %}
+                {% if project.imageBefore is null %}
                     {% else %}
-                        <img src="{{ asset('uploads/' ~ project.imgBefore.name|default('undefined'))|imagine_filter('image_project_two') }}" alt="image">
-                        <a href="{{ path('admin_project_delete_image', {'id': project.imgBefore.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imgBefore.id) }}">supprimer</a>
+                        <img src="{{ asset('uploads/' ~ project.imageBefore.name|default('undefined'))|imagine_filter('image_project_two') }}" alt="image">
+                        <a href="{{ path('admin_project_delete_image_before', {'id': project.imageBefore.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imageBefore.id) }}">supprimer</a>
                 {% endif %}
 
             </div>
         <div class="row_project_img">
             <h2>après:</h2>
-            {% if project.imgAfter is null %}
+            {% if project.imageAfter is null %}
             {% else %}
-                <img src="{{ asset('uploads/' ~ project.imgAfter.name|default('undefined'))|imagine_filter('image_project_two') }}" alt="image">
-            <a href="{{ path('admin_project_delete_image', {'id': project.imgAfter.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imgAfter.id) }}">supprimer</a>
+                <img src="{{ asset('uploads/' ~ project.imageAfter.name|default('undefined'))|imagine_filter('image_project_two') }}" alt="image">
+            <a href="{{ path('admin_project_delete_image_after', {'id': project.imageAfter.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imageAfter.id) }}">supprimer</a>
             {% endif %}
         </div>
     </div>

@@ -4,6 +4,8 @@ namespace App\Controller\admin;
 
 
 use App\Entity\Image;
+use App\Entity\ImageAfter;
+use App\Entity\ImageBefore;
 use App\Entity\Projects;
 use App\Form\ProjectsType;
 use App\Repository\ProjectsRepository;
@@ -64,8 +66,8 @@ class ProjectController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $form->get('images')->getData();
-            $imgBefore = $form->get('imgBefore')->getData();
-            $imgAfter = $form->get('imgAfter')->getData();
+            $imageBefore = $form->get('imageBefore')->getData();
+            $imageAfter = $form->get('imageAfter')->getData();
 
 
             foreach ($images as $image) {
@@ -79,33 +81,33 @@ class ProjectController extends AbstractController
                 $projects->addImage($img);
             }
 
-            $lastFile = $projects->getImgAfter();
-            if($form['imgAfter']->getData() == null){
-                $projects-> setImgAfter($lastFile);
+            $lastFile = $projects->getImageAfter();
+            if($form['imageAfter']->getData() == null){
+                $projects-> setImageAfter($lastFile);
             }
             else {
-                $file = md5(uniqid()) . '.' . $imgAfter->guessExtension();
-                $imgAfter->move(
+                $file = md5(uniqid()) . '.' . $imageAfter->guessExtension();
+                $imageAfter->move(
                     $this->getParameter('images_directory'),
                     $file
                 );
-                $img = new Image();
+                $img = new ImageAfter();
                 $img->setName($file);
-                $projects->setImgAfter($img);
+                $projects->setImageAfter($img);
             }
-            $lastFile = $projects->getImgBefore();
-            if($form['imgBefore']->getData() == null){
-                $projects-> setImgBefore($lastFile);
+            $lastFile = $projects->getImageBefore();
+            if($form['imageBefore']->getData() == null){
+                $projects-> setImageBefore($lastFile);
             }
             else {
-                $file = md5(uniqid()) . '.' . $imgBefore->guessExtension();
-                $imgBefore->move(
+                $file = md5(uniqid()) . '.' . $imageBefore->guessExtension();
+                $imageBefore->move(
                     $this->getParameter('images_directory'),
                     $file
                 );
-                $img = new Image();
+                $img = new ImageBefore();
                 $img->setName($file);
-                $projects->setImgBefore($img);
+                $projects->setImageBefore($img);
             }
 
             $this->getDoctrine()->getManager()->flush();
@@ -134,8 +136,8 @@ class ProjectController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $imgBefore = $form->get('imgBefore')->getData();
-            $imgAfter = $form->get('imgAfter')->getData();
+            $imageBefore = $form->get('imageBefore')->getData();
+            $imageAfter = $form->get('imageAfter')->getData();
             $images = $form->get('images')->getData();
 
             $obligFile = null;
@@ -157,35 +159,37 @@ class ProjectController extends AbstractController
 
                 }
             }
-            if($form['imgBefore']->getData() == null){
-                $projects-> setImgBefore($obligFile);
+            if($form['imageBefore']->getData() == null){
+                $projects-> setImageBefore($obligFile);
             }
             else {
 
-                $file = md5(uniqid()) . '.' . $imgBefore->guessExtension();
-                $imgBefore->move(
+                $file = md5(uniqid()) . '.' . $imageBefore->guessExtension();
+                $imageBefore->move(
                     $this->getParameter('images_directory'),
                     $file
                 );
-                $img = new Image();
+                $img = new ImageBefore();
                 $img->setName($file);
-                $projects->setImgBefore($img);
+                $projects->setImageBefore($img);
             }
-            if($form['imgAfter']->getData() == null){
-                $projects-> setImgAfter($obligFile);
+            if($form['imageAfter']->getData() == null){
+                $projects-> setImageAfter($obligFile);
             }
             else {
-                $file = md5(uniqid()) . '.' . $imgAfter->guessExtension();
-                $imgAfter->move(
+                $file = md5(uniqid()) . '.' . $imageAfter->guessExtension();
+                $imageAfter->move(
                     $this->getParameter('images_directory'),
                     $file
                 );
-                $img = new Image();
+                $img = new ImageAfter();
                 $img->setName($file);
-                $projects->setImgAfter($img);
+                $projects->setImageAfter($img);
             }
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($projects);
+
             $em->flush();
 
             return $this->redirectToRoute('admin_project_home');
@@ -205,8 +209,8 @@ class ProjectController extends AbstractController
     {
 
         $em = $this->getDoctrine()->getManager();
-        $projects->setImgAfter(null);
-        $projects->setImgBefore(null);
+        $projects->setImageAfter(null);
+        $projects->setImageBefore(null);
         $em->flush();
             $em->remove($projects);
             $em->flush();
@@ -232,7 +236,54 @@ class ProjectController extends AbstractController
             $em->flush();
 
             return new JsonResponse(['success' => 1]);
-        }else{
+        }
+       else{
+            return new JsonResponse(['error' => 'Token Invalide'], 400);
+        }
+
+    }
+    /**
+     * @Route("/delete/imageBefore/{id}", name="delete_image_before", requirements={"id":"\d+"}, methods={"DELETE"})
+     * @param ImageBefore $imageBefore
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function deleteImageBefore(ImageBefore $imageBefore, Request $request)
+    {
+        $data = json_decode($request->getContent(), true );
+        if($this->isCsrfTokenValid('delete'.$imageBefore->getId(), $data['_token']))  {
+            $nom = $imageBefore->getName();
+            unlink($this->getParameter('images_directory') . '/' . $nom);
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($imageBefore);
+            $em->flush();
+
+            return new JsonResponse(['success' => 1]);
+        }
+        else{
+            return new JsonResponse(['error' => 'Token Invalide'], 400);
+        }
+
+    }
+    /**
+     * @Route("/delete/imageAfter/{id}", name="delete_image_after", requirements={"id":"\d+"}, methods={"DELETE"})
+     * @param ImageAfter $imageAfter
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function deleteImageAfter(ImageAfter $imageAfter, Request $request)
+    {
+        $data = json_decode($request->getContent(), true );
+        if($this->isCsrfTokenValid('delete'.$imageAfter->getId(), $data['_token']))  {
+            $nom = $imageAfter->getName();
+            unlink($this->getParameter('images_directory') . '/' . $nom);
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($imageAfter);
+            $em->flush();
+
+            return new JsonResponse(['success' => 1]);
+        }
+        else{
             return new JsonResponse(['error' => 'Token Invalide'], 400);
         }
 
