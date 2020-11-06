@@ -25,7 +25,7 @@
                 <h2>avant:</h2>
                 {% if project.imageBefore is null %}
                     {% else %}
-                        <img src="{{ asset('uploads/' ~ project.imageBefore.name|default('undefined'))|imagine_filter('image_project_two') }}" alt="image">
+                        <img class="responsive-img" src="{{ asset('uploads/' ~ project.imageBefore.name|default('undefined'))|imagine_filter('image_project_two') }}" alt="image">
                         <a href="{{ path('admin_project_delete_image_before', {'id': project.imageBefore.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imageBefore.id) }}">supprimer</a>
                 {% endif %}
 
@@ -34,7 +34,7 @@
             <h2>après:</h2>
             {% if project.imageAfter is null %}
             {% else %}
-                <img src="{{ asset('uploads/' ~ project.imageAfter.name|default('undefined'))|imagine_filter('image_project_two') }}" alt="image">
+                <img class="responsive-img" src="{{ asset('uploads/' ~ project.imageAfter.name|default('undefined'))|imagine_filter('image_project_two') }}" alt="image">
             <a href="{{ path('admin_project_delete_image_after', {'id': project.imageAfter.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ project.imageAfter.id) }}">supprimer</a>
             {% endif %}
         </div>
