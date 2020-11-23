@@ -1,34 +1,73 @@
-<div class="box-info">
+<div class="container-fluid box-info ">
+    <div class="row ">
+        <div class="col mt-4">
+            <a class="info-link" data-toggle="modal" data-target="#basicModal" href="#">
 
-    <div class="box-info-box">
-        <a class="info-link" data-toggle="modal" data-target="#basicModal" href="#">
-    <div class="box-info-text ">
-        <img class="" alt="Responsive image"
-             src="{{ asset('assets/images/map.png') }}">
-        <div class="box-text">
-        <h2 class="info-title"> Notre adresse</h2> <br>
-        <p> 5 Rue du Bout aux plaids <br>
-            27930 Sacquenville</p>
+                            <img class="" alt="Responsive image"
+                                 src="{{ asset('assets/images/map.png') }}">
+
+                <h2 class="info-title text-white"> Notre adresse</h2> <br>
+                                <p class="text-white"> 5 Rue du Bout aux plaids <br>
+                                    27930 Sacquenville</p>
+
+            </a>
+                    {% include'map/index.html.twig' %}
         </div>
-    </div>
-        </a>
-        {% include'map/index.html.twig' %}
-    <div class="box-info-text">
-        <img class="" alt="Responsive image"
-             src="{{ asset('assets/images/phonebas.png') }}">
-        <div  class="box-text">
-        <h2 class="info-title"> Nous contacter</h2> <br>
-        <a class="box-text-link"  href="tel:+33787953786">06 87 80 57 18</a>
-    </div>
-    </div>
-    <div class="box-info-text">
-        <img class="" alt="Responsive image"
-             src="{{ asset('assets/images/mailbas.png') }}">
-        <div  class="box-text">
-        <h2 class="info-title">Notre mail</h2> <br>
-        <a class="box-text-link" href="mailto:johan27000@gmail.com">rgbn-stephanegicquel@orange.fr</a>
-    </div>
-    </div>
-    </div>
+
+        <div class="col mt-4">
+
+                <img class="" alt="Responsive image"
+                     src="{{ asset('assets/images/phonebas.png') }}">
+
+                    <h2 class="info-title text-white"> Nous contacter</h2> <br>
+                    <a class="info-link text-white" href="tel:+33787953786">06 87 80 57 18</a>
+
+
+        </div>
+        <div class="col mt-4">
+
+                <img class="" alt="Responsive image"
+                     src="{{ asset('assets/images/mailbas.png') }}">
+
+                    <h2 class="info-title text-white">Notre mail</h2> <br>
+                    <a class="info-link text-white" href="mailto:johan27000@gmail.com">rgbn-stephanegicquel@orange.fr</a>
+
+
+        </div>
+    </div >
+
 </div>
+
+{#<div class="box-info">
+    <div class="box-info-text">
+            <a class="info-link" data-toggle="modal" data-target="#basicModal" href="#">
+                <div class="box-info-text ">
+                    <img class="" alt="Responsive image"
+                         src="{{ asset('assets/images/map.png') }}">
+                    <div class="box-text">
+                        <h2 class="info-title"> Notre adresse</h2> <br>
+                        <p> 5 Rue du Bout aux plaids <br>
+                            27930 Sacquenville</p>
+                    </div>
+                </div>
+            </a>
+            {% include'map/index.html.twig' %} </div>#}
+
+        {#<div class="box-info-text">
+            <img class="" alt="Responsive image"
+                 src="{{ asset('assets/images/phonebas.png') }}">
+            <div class="box-text">
+                <h2 class="info-title"> Nous contacter</h2> <br>
+                <a class="box-text-link" href="tel:+33787953786">06 87 80 57 18</a>
+            </div>
+        </div>#}
+        {#<div class="box-info-text">
+            <img class="" alt="Responsive image"
+                 src="{{ asset('assets/images/mailbas.png') }}">
+            <div class="box-text">
+                <h2 class="info-title">Notre mail</h2> <br>
+                <a class="box-text-link" href="mailto:johan27000@gmail.com">rgbn-stephanegicquel@orange.fr</a>
+            </div>
+        </div>#}
+
 

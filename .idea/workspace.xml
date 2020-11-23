@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3112c318-be52-42b6-ad83-c70734bd36c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/info.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/info.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/superposition.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/superposition.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +151,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kaza" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -177,6 +180,13 @@
       <workItem from="1604590206604" duration="1000" />
       <workItem from="1604590425653" duration="1000" />
       <workItem from="1604595933304" duration="249000" />
+      <workItem from="1604668575581" duration="1463000" />
+      <workItem from="1604670126204" duration="213000" />
+      <workItem from="1605012890317" duration="8000" />
+      <workItem from="1605255383978" duration="53000" />
+      <workItem from="1605255445040" duration="12000" />
+      <workItem from="1606129648927" duration="4022000" />
+      <workItem from="1606165129129" duration="6067000" />
     </task>
     <servers />
   </component>
@@ -195,10 +205,10 @@
       <screen x="0" y="26" width="1920" height="1000" />
     </state>
     <state x="657" y="328" width="595" height="403" key="#com.intellij.fileTypes.FileTypeChooser/0.26.1920.1000/1920.0.1920.1080@0.26.1920.1000" timestamp="1603374448728" />
-    <state x="743" y="284" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604596180104">
+    <state x="743" y="284" width="424" height="491" key="FileChooserDialogImpl" timestamp="1606137272008">
       <screen x="0" y="27" width="1920" height="999" />
     </state>
-    <state x="743" y="284" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.999/1920.0.1920.1080@0.27.1920.999" timestamp="1604596180104" />
+    <state x="743" y="284" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.999/1920.0.1920.1080@0.27.1920.999" timestamp="1606137272008" />
     <state x="449" y="161" width="1022" height="737" key="SettingsEditor" timestamp="1603751191643">
       <screen x="0" y="27" width="1920" height="999" />
     </state>
@@ -207,5 +217,13 @@
       <screen x="0" y="27" width="1920" height="999" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.27.1920.999/1920.0.1920.1080@0.27.1920.999" timestamp="1603461560460" />
+    <state x="684" y="373" width="542" height="314" key="cloudConfig.PluginsDialog" timestamp="1606167544242">
+      <screen x="0" y="27" width="1920" height="999" />
+    </state>
+    <state x="684" y="373" width="542" height="314" key="cloudConfig.PluginsDialog/0.27.1920.999/1920.0.1920.1080@0.27.1920.999" timestamp="1606167544242" />
+    <state x="574" y="155" width="762" height="749" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1606135767571">
+      <screen x="0" y="27" width="1920" height="999" />
+    </state>
+    <state x="574" y="155" width="762" height="749" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1920.999/1920.0.1920.1080@0.27.1920.999" timestamp="1606135767571" />
   </component>
 </project>
